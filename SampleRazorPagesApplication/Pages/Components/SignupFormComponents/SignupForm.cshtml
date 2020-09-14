@@ -1,0 +1,17 @@
+﻿@using SignupFormComponents;
+
+@model SignupForm
+
+<form class="signup-form" action="@Model.Action" style="border: 1px solid black; padding: 1rem">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name">
+    </div>
+    <SignupButton FontSize="2rem">
+
+    </SignupButton>
+</form>

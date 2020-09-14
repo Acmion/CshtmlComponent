@@ -1,0 +1,6 @@
+﻿@model Capitalized
+
+@foreach (var c in Model.ChildContent)
+{
+    <text>@c.ToString().ToUpperInvariant()</text>
+}

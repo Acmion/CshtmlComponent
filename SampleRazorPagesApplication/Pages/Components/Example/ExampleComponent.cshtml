@@ -1,0 +1,36 @@
+﻿
+@* Reference the associated component as model. **@
+@using SampleRazorPagesApplication
+@model ExampleComponent
+
+@* The content of the component. **@
+<div class="example-component" style="padding: 1rem; background-color: @Model.BackgroundColor; font-size: @Model.FontSize">
+    <div class="example-component-content">
+
+        @{ 
+            var totCount = 0;
+        }
+
+        @for (var i = 0; i < Model.PageCount; i++)
+        {
+            <div>
+                <p>
+                    <strong>
+                        Page @i
+                    </strong>
+                </p>
+                @for (var j = 0; j < Model.ItemsPerPage && totCount < Model.ItemCount; j++)
+                {
+                    <p>
+                        @Model.PrefixString@j
+                    </p>
+                    totCount++;
+                }
+            </div>
+        }
+    </div>
+    <div class="example-component-child-content">
+        @* Render the child content. **@
+        @Html.Raw(Model.ChildContent)
+    </div>
+</div>
