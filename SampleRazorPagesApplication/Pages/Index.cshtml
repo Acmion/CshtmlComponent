@@ -46,5 +46,14 @@
     <br />
     <br />
 
-    <ExampleComponent font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)" ItemCount="99" ItemsPerPage="10" PrefixString="ItemPrefix"></ExampleComponent>
+    <ExampleComponent font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)" ItemCount="99" ItemsPerPage="10" PrefixString="ItemPrefix">
+        <div>
+            <h2>
+                This is some custom HTML child content.
+            </h2>
+            <ExampleComponent font-size="1rem" background-color="rgba(0, 0, 255, 0.1)" ItemCount="9" ItemsPerPage="4" PrefixString="NestedItemPrefix">
+                Nested components are also supported.
+            </ExampleComponent>
+        </div>
+    </ExampleComponent>
 </div>
