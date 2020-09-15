@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CshtmlComponent", "CshtmlComponent\CshtmlComponent.csproj", "{7531E418-FCB8-4984-AA26-23C090737686}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acmion.CshtmlComponent", "Acmion.CshtmlComponent\Acmion.CshtmlComponent.csproj", "{7531E418-FCB8-4984-AA26-23C090737686}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleRazorPagesApplication", "SampleRazorPagesApplication\SampleRazorPagesApplication.csproj", "{734B5614-9C68-4E15-8F5F-F8F2645BEC5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleRazorPagesApplication", "SampleRazorPagesApplication\SampleRazorPagesApplication.csproj", "{734B5614-9C68-4E15-8F5F-F8F2645BEC5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

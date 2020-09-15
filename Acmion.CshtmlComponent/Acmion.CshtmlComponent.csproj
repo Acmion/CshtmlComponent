@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Nullable>enable</Nullable>
+    <Authors>Acmion</Authors>
+    <Company>Acmion</Company>
+    <Description>Real component for ASP.NET Core that supports nested content, custom tags, runtime compilation and more.</Description>
+    <RepositoryUrl>https://github.com/Acmion/CshtmlComponent</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://cshtml-component.acmion.com</PackageProjectUrl>
+    <PackageTags>C#, ASP.NET, Core, Component, Components, Razor, Cshtml, Nested, TagHelper</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+
+</Project>

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CshtmlComponent
+namespace Acmion.CshtmlComponent
 {
     public abstract class CshtmlComponentBase : TagHelper
     {
