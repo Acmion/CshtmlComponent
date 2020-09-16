@@ -429,7 +429,7 @@
             <script>
                 async function loadTheCode()
                 {
-                    var cshtmlComponentCodeResponse = await fetch("CshtmlComponent/CshtmlComponentBase.cs");
+                    var cshtmlComponentCodeResponse = await fetch("Acmion.CshtmlComponent/CshtmlComponentBase.cs");
                     var cshtmlComponentCode = await cshtmlComponentCodeResponse.text();
 
                     document.getElementById("the-code-code").innerText = cshtmlComponentCode; 
