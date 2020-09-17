@@ -31,13 +31,14 @@ namespace SampleRazorPagesApplication
         [HtmlAttributeNotBound]
         public int PageCount { get; set; } = 0;
 
-        public ExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/ExampleComponent.cshtml", "div")
+        public ExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/ExampleComponent.cshtml", "div", TagMode.StartTagAndEndTag)
         {
             // The constructor. 
             // Note: Only dependency injected arguments.
 
             // "/Pages/Components/Example/ExampleComponent.cshtml" is the path to the associated .cshtml file.
             // "div" is the output tag name.
+            // TagMode.StartTagAndEndTag determines the tag structure, optional parameter. Defaults to TagMode.StartTagAndEndTag.
 
             // Properties should not be accessed here, because they will not yet be set.
         }

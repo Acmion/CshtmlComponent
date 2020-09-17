@@ -25,6 +25,9 @@ namespace Acmion.CshtmlComponent
 
         [HtmlAttributeNotBound]
         public string? OutputTagName { get; set; }
+        
+        [HtmlAttributeNotBound]
+        public TagMode OutputTagMode { get; set; }
 
         [HtmlAttributeNotBound]
         public string ChildContent { get; set; }
@@ -35,11 +38,13 @@ namespace Acmion.CshtmlComponent
         // IHtmlHelper htmlHelper is dependency injected by ASP.NET Core
         // string partialViewName should be provided by the class that implements CshtmlComponentBase
         // string outputTagName should be provided by the class that implements CshtmlComponentBase
-        public CshtmlComponentBase(IHtmlHelper htmlHelper, string partialViewName, string? outputTagName)
+        // TagMode outputTagMode determines the tag structure
+        public CshtmlComponentBase(IHtmlHelper htmlHelper, string partialViewName, string? outputTagName, TagMode outputTagMode = TagMode.StartTagAndEndTag)
         {
             _htmlHelper = htmlHelper;
             PartialViewName = partialViewName;
             OutputTagName = outputTagName;
+            OutputTagMode = outputTagMode;
 
             ChildContent = ""; // Will be replaced in ProcessAsync
 
@@ -62,6 +67,7 @@ namespace Acmion.CshtmlComponent
             var content = await _htmlHelper.PartialAsync(PartialViewName, this);
 
             output.TagName = OutputTagName;
+            output.TagMode = OutputTagMode;
             output.Content.SetHtmlContent(content);
         }
 

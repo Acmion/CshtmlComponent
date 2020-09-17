@@ -14,7 +14,7 @@ namespace SampleRazorPagesApplication.Pages.Components
     {
         public string Email { get; set; } = "";
 
-        public ObfuscatedEmail(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/ObfuscatedEmail.cshtml", null)
+        public ObfuscatedEmail(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/ObfuscatedEmail.cshtml", "span", TagMode.StartTagAndEndTag)
         {
         }
     }
