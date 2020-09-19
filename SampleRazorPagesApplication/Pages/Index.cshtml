@@ -2,6 +2,7 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var wolrd = 0;
 }
 
 <div class="text-center">
@@ -11,6 +12,45 @@
 </div>
 
 <div class="container">
+    <ExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)">
+        <div>
+            Some custom HTML content.
+            <Box>
+                Supports nested components.
+            </Box>
+        </div>
+        <CshtmlSlot Name="SlotName0">
+            Some custom HTML content within a named slot. The parent component decides where
+            this content is placed.
+        </CshtmlSlot>
+        <CshtmlSlot Name="SlotName1">
+            Additional custom HTML content within a second named slot.
+            <Box>
+                Supports nested components 222.
+                <ExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)">
+                    <div>
+                        Some custom HTML content.
+                        <Box>
+                            Supports nested components.
+                        </Box>
+                    </div>
+                    <CshtmlSlot Name="SlotName0">
+                        Some custom HTML content within a named slot. The parent component decides where
+                        this content is placed.
+                    </CshtmlSlot>
+                    <CshtmlSlot Name="SlotName1">
+                        Additional custom HTML content within a second named slot.
+                        <Box>
+                            Supports nested components.
+                        </Box>
+                    </CshtmlSlot>
+                </ExampleComponent>
+            </Box>
+        </CshtmlSlot>
+    </ExampleComponent>
+
+    <br />
+
     <Box>
         This is some content in a box.
         <Box>
@@ -35,7 +75,7 @@
 
     <br />
 
-    Bots can not read this email address (use dev tools to inspect element): <ObfuscatedEmail email="dark-lord@mordor.com"/>
+    Bots can not read this email address (use dev tools to inspect element): <ObfuscatedEmail email="dark-lord@mordor.com" />
 
     <br />
 
@@ -46,14 +86,5 @@
     <br />
     <br />
 
-    <ExampleComponent font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)" ItemCount="99" ItemsPerPage="10" PrefixString="ItemPrefix">
-        <div>
-            <h2>
-                This is some custom HTML child content.
-            </h2>
-            <ExampleComponent font-size="1rem" background-color="rgba(0, 0, 255, 0.1)" ItemCount="9" ItemsPerPage="4" PrefixString="NestedItemPrefix">
-                Nested components are also supported.
-            </ExampleComponent>
-        </div>
-    </ExampleComponent>
+
 </div>

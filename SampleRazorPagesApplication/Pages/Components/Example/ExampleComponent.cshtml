@@ -4,32 +4,28 @@
 
 @* The content of the component. **@
 <div class="example-component" style="padding: 1rem; background-color: @Model.BackgroundColor; font-size: @Model.FontSize">
-    <div class="example-component-content">
+    <h1 style="margin: 0; line-height: 100%">
+        ExampleComponent: @Model.UppercaseTitle
+    </h1>
 
-        @{ 
-            var totCount = 0;
-        }
-
-        @for (var i = 0; i < Model.PageCount; i++)
-        {
-            <div>
-                <p>
-                    <strong>
-                        Page @i
-                    </strong>
-                </p>
-                @for (var j = 0; j < Model.ItemsPerPage && totCount < Model.ItemCount; j++)
-                {
-                    <p>
-                        @Model.PrefixString@j
-                    </p>
-                    totCount++;
-                }
-            </div>
-        }
+    <br />
+    
+    <div  class="example-component-slot0" style="background: rgba(0, 255, 0, 0.1); padding: 1rem;">
+        @* Render another named slot. **@
+        @Html.Raw(Model.NamedSlots["SlotName0"])
     </div>
-    <div class="example-component-child-content">
+    
+    <br />
+    
+    <div class="example-component-child-content" style="background: rgba(0, 0, 255, 0.1); padding: 1rem;">
         @* Render the child content. **@
         @Html.Raw(Model.ChildContent)
+    </div>
+    
+    <br />
+    
+    <div class="example-component-slot1" style="background: rgba(255, 0, 0, 0.1); padding: 1rem;">
+        @* Render a named slot. **@
+        @Html.Raw(Model.NamedSlots["SlotName1"])
     </div>
 </div>

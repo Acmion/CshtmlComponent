@@ -21,10 +21,5 @@ namespace SampleRazorPagesApplication.Pages.Components
         public CaptionedImage(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/CaptionedImage.cshtml", "div")
         {
         }
-
-        protected override Task ProcessComponent()
-        {
-            return base.ProcessComponent();
-        }
     }
 }

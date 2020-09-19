@@ -13,23 +13,17 @@ namespace SampleRazorPagesApplication
     [HtmlTargetElement("ExampleComponent")]
     public class ExampleComponent : CshtmlComponentBase
     {
-        // These properties are explicitly named.
-        [HtmlAttributeName("ItemCount")]
-        public int ItemCount { get; set; } = 0;
+        // Explicitly named attribute.
+        [HtmlAttributeName("Title")]
+        public string Title { get; set; } = "";
 
-        [HtmlAttributeName("ItemsPerPage")]
-        public int ItemsPerPage { get; set; } = 0;
-
-        [HtmlAttributeName("PrefixString")]
-        public string PrefixString { get; set; } = "";
-
-        // These properties will default to their kebabcased variants.
+        // These properties will default to their kebab-cased variants.
         public string FontSize { get; set; } = "1rem";
         public string BackgroundColor { get; set; } = "rgba(255, 0, 0, 0.1)";
 
-        // A not HTML bound properties, that is can not be accessed as a attribute in the component tag.
+        // A not HTML bound property, which can not be accessed as a attribute in the component tag.
         [HtmlAttributeNotBound]
-        public int PageCount { get; set; } = 0;
+        public string UppercaseTitle { get; set; } = "";
 
         public ExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/ExampleComponent.cshtml", "div", TagMode.StartTagAndEndTag)
         {
@@ -43,7 +37,7 @@ namespace SampleRazorPagesApplication
             // Properties should not be accessed here, because they will not yet be set.
         }
 
-        protected override Task ProcessComponent()
+        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
         {
             // This method is called just before the associated .cshtml file is execute.
             // Properties have been initialized and can be accessed.
@@ -52,9 +46,9 @@ namespace SampleRazorPagesApplication
 
             // Use this method to edit some other properties or fields.
 
-            PageCount = (int)Math.Ceiling((ItemCount + 0.0) / ItemsPerPage);
+            UppercaseTitle = Title.ToUpperInvariant();
 
-            return base.ProcessComponent();
+            return base.ProcessComponent(context, output);
         }
     }
 }

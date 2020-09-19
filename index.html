@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>
-            CshtmlComponent - A Component for ASP.NET Core 
+            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.0.0
         </title>
 
         <meta name="description" content="CshtmlComponent, a component for ASP.NET Core MVC and Razor Pages. No Blazor.">
@@ -31,6 +31,7 @@
 
         <!-- Custom -->
         <link rel="stylesheet" href="Web/css/main.css" />
+        <script src="/Web/js/version.js"></script>
     </head>
     <body>
         <header>
@@ -76,9 +77,9 @@
                             </a>
                         </div>
                         <div class="hn-item">
-                            <a class="hn-link" href="#basic-example">
+                            <a class="hn-link" href="#example">
                                 <span class="hn-content">
-                                    Basic Example
+                                    Example
                                 </span>
                             </a>
                         </div>
@@ -97,9 +98,9 @@
                             </a>
                         </div>
                         <div class="hn-item">
-                            <a class="hn-link" href="#notes">
+                            <a class="hn-link" href="#change-log">
                                 <span class="hn-content">
-                                    Notes
+                                    Changelog
                                 </span>
                             </a>
                         </div>
@@ -130,7 +131,7 @@
         <main class="container">
             <section>
                 <h1 class="scroll-anchor" id="home">
-                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component
+                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.0.0
                 </h1>
             
                 <p>
@@ -170,6 +171,9 @@
                                     <li>
                                         Lenient File Structure
                                     </li>
+                                    <li>
+                                        Named Slots
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -195,6 +199,9 @@
                                     </li>
                                     <li>
                                         Lenient File Structure
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Named Slots
                                     </li>
                                 </ul>
                             </div>
@@ -222,6 +229,9 @@
                                     <li class="feature-not-enabled">
                                         Lenient File Structure
                                     </li>
+                                    <li class="feature-not-enabled">
+                                        Named Slots
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -248,6 +258,9 @@
                                     <li class="feature-not-enabled">
                                         Lenient File Structure
                                     </li>
+                                    <li>
+                                        Named Slots
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -257,12 +270,12 @@
             </section>
 
             <section>
-                <h2 class="scroll-anchor" id="basic-example">
-                    Basic Example
+                <h2 class="scroll-anchor" id="example">
+                    Example
                 </h2>
 
                 <p>
-                    This is the C# source code of a basic CshtmlComponent.
+                    This is the C# source code of a CshtmlComponent with nested components, named slots, attributes and pure HTML content.
                 </p>
             
                 <pre><code id="basic-example-code"></code></pre>
@@ -291,6 +304,12 @@
                 </p>
             
                 <pre><code id="the-code-code"></code></pre>
+
+                <p>
+                    This is the entire source code of <strong>CshtmlComponentSlot</strong>.
+                </p>
+
+                <pre><code id="the-code-slot-code"></code></pre>
             
             </section>
 
@@ -303,7 +322,9 @@
                     To create <code>ExampleComponent</code> with CshtmlComponent, just do the following: 
                     <ol>
                         <li>
-                            <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a></strong> or copy the code from <strong>The Code</strong> and paste it into a <code>.cs</code> file in your project.
+                            <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a></strong> and add the following 
+                            to a <code>_ViewImports.cshtml</code> file: <code>@addTagHelper *, Acmion.CshtmlComponent</code>. Alternatively, copy the code from 
+                            <a href="#the-code">The Code</a> and paste it into <code>.cs</code> files in your project.
                         </li>
                         <li>
                             Create the following files <code>ExampleComponent.cshtml.cs</code> and <code>ExampleComponent.cshtml</code> under 
@@ -344,7 +365,7 @@
                                     <code>ExampleComponent.cshtml</code> is executed. Here you can extract information from properties and 
                                     access other fields etc. This can not be done in the constructor, since any provided properties 
                                     will not have been set yet. The nested child content can be accessed in this method by accessing 
-                                    <code>ChildContent</code>.
+                                    <code>ChildContent</code>. The named slots can be accessed by accessing <code>NamedSlots</code>
                                 </li>
                             </ol>
                         </li>
@@ -364,6 +385,13 @@
                                     that XSS attacks are possible if non-validated user input is used as child content.
                                 </li>
                                 <li>
+                                    Any named slots can be accessed with <code>Model.NamedSlots</code>. To render the slot content,
+                                    you can use <code>Html.Raw(Model.NamedSlots["SlotName"])</code>, but note that this does not encode the HTML, which means
+                                    that XSS attacks are possible if non-validated user input is used as child content. The named lots have to be defined, in 
+                                    the initializing context, with <code>&lt;CshtmlSlot Name="SlotName"&gt;[CONTENT HERE]&lt;CshtmlSlot&gt;</code>. See the example 
+                                    in <a href="#example">Example</a>. 
+                                </li>
+                                <li>
                                     Render your markup and use <code>.cshtml</code> files as you wish.
                                 </li>
                             </ol>
@@ -380,21 +408,13 @@
                 </p>
 
                 <p>
-                    <strong>Note:</strong> See the sample project in the <a href="https://github.com/Acmion/CshtmlComponent.git">CshtmlComponent GitHub repository</a> for concrete
-                    examples.
-                </p>
-            
-            </section>
-
-            <section>
-                <h2 class="scroll-anchor" id="notes">
-                    Notes
-                </h2>
-            
-                <p>
-                    Some notes about CshtmlComponent.
+                    <strong>Notes:</strong>
 
                     <ul>
+                        <li>
+                            See the sample project in the <a href="https://github.com/Acmion/CshtmlComponent.git">CshtmlComponent GitHub repository</a> for concrete
+                            examples.
+                        </li>
                         <li>
                             A CshtmlComponent is just a TagHelper with some "magic". In practice, everything that applies to
                             ASP.NET Core TagHelpers apply to CshtmlComponents.
@@ -404,8 +424,61 @@
                             inherited from TagHelper.
                         </li>
                     </ul>
-
                 </p>
+            
+            </section>
+
+            <section>
+                <h2 class="scroll-anchor" id="change-log">
+                    Changelog
+                </h2>
+
+                <section>
+                    <h4>
+                        V2.0.0
+                    </h4>
+                    <a href="/">
+                        V2.0.0 Documentation
+                    </a>
+                    <p>
+                        Published: Sep 19, 2020
+                    </p>
+                    <p>
+                        Breaking changes. Added support for named slots and added tag helper context and output as arguments 
+                        to <code>ProcessComponent</code>.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>
+                        V1.1.0
+                    </h4>
+                    <a href="/v1.1.0/">
+                        V1.1.0 Documentation
+                    </a>
+                    <p>
+                        Published: Sep 17, 2020
+                    </p>
+                    <p>
+                        Added support for <code>TagMode</code>, which provides some extra customizability.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>
+                        V1.0.0
+                    </h4>
+                    <a href="/v1.0.0/">
+                        V1.0.0 Documentation
+                    </a>
+                    <p>
+                        Published: Sep 15, 2020
+                    </p>
+                    <p>
+                        The initial release.
+                    </p>
+                </section>
+            
             
             </section>
 
@@ -430,10 +503,14 @@
             <script>
                 async function loadTheCode()
                 {
-                    var cshtmlComponentCodeResponse = await fetch("Acmion.CshtmlComponent/CshtmlComponentBase.cs");
-                    var cshtmlComponentCode = await cshtmlComponentCodeResponse.text();
+                    var cshtmlComponentCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentBase.cs");
+                    var cshtmlComponentSlotCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentSlot.cs");
+
+                    var cshtmlComponentCode = await (await cshtmlComponentCodeFetch).text();
+                    var cshtmlComponentSlotCode = await (await cshtmlComponentSlotCodeFetch).text();
 
                     document.getElementById("the-code-code").innerText = cshtmlComponentCode; 
+                    document.getElementById("the-code-slot-code").innerText = cshtmlComponentSlotCode; 
                 }
 
                 async function loadBasicExample()
