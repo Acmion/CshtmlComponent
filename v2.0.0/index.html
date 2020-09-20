@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>
+            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.0.0
+        </title>
+
+        <meta name="description" content="CshtmlComponent, a component for ASP.NET Core MVC and Razor Pages. No Blazor.">
+        <meta name="keywords" content="ASP, NET, .NET, Core, C#, razor, cshtml, component, code, mvc, razor pages">
+        <meta name="robots" content="index, follow">
+        <meta name="language" content="English">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="visualization/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="visualization/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="visualization/favicon/favicon-16x16.png">
+        <link rel="manifest" href="visualization/favicon/site.webmanifest">
+        <link rel="mask-icon" href="visualization/favicon/safari-pinned-tab.svg" color="#0355ea">
+        <link rel="shortcut icon" href="visualization/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#020202">
+        <meta name="msapplication-config" content="visualization/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#020202">
+
+        <!-- Libraries -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.acmion.com/acmion/hyper-nav/dist/hyper-nav-default.min.css">
+
+        <!-- Custom -->
+        <link rel="stylesheet" href="/Web/css/main.css">
+    </head>
+
+    <body>
+        <header>
+            <nav class="hn-menu hn-top hn-fixed hn-shadow">
+                <input type="checkbox" name="hn-top-state" class="hn-input-state hn-input-state-nav hn-hide-desktop" id="hn-nav-cb">
+
+                <div class="hn-nav container-md p-0">
+                    <div class="hn-section hn-section-brand">
+                        <div class="hn-item">
+                            <a id="hn-logo" class="hn-link" href="#home">
+                                <span class="hn-content">
+                                    <strong style="font-weight: 600;">
+                                        CshtmlComponent
+                                    </strong>
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="hn-spacer"></div>
+
+                        <label class="hn-item hn-input hn-input-nav hn-hide-desktop" for="hn-nav-cb">
+                            <span class="hn-link">
+                                <span class="hn-content">
+                                    <span class="hn-input-active ">
+                                        <i class="ri-close-line"></i>
+                                    </span>
+                                    <span class="hn-input-default">
+                                        <i class="ri-menu-line"></i>
+                                    </span>
+                                </span>
+                            </span>
+                        </label>
+
+                    </div>
+                    <div class="hn-section hn-section-body">
+                        <div class="hn-spacer"></div>
+
+                        <div class="hn-item">
+                            <a class="hn-link" href="#home">
+                                <span class="hn-content">
+                                    Home
+                                </span>
+                            </a>
+                        </div>
+                        <div class="hn-item">
+                            <a class="hn-link" href="#example">
+                                <span class="hn-content">
+                                    Example
+                                </span>
+                            </a>
+                        </div>
+                        <div class="hn-item">
+                            <a class="hn-link" href="#the-code">
+                                <span class="hn-content">
+                                    The Code
+                                </span>
+                            </a>
+                        </div>
+                        <div class="hn-item">
+                            <a class="hn-link" href="#usage">
+                                <span class="hn-content">
+                                    Usage
+                                </span>
+                            </a>
+                        </div>
+                        <div class="hn-item">
+                            <a class="hn-link" href="#change-log">
+                                <span class="hn-content">
+                                    Changelog
+                                </span>
+                            </a>
+                        </div>
+                        <div class="hn-item">
+                            <a class="hn-link" href="#credits">
+                                <span class="hn-content">
+                                    Credits
+                                </span>
+                            </a>
+                        </div>
+                        <div class="hn-item">
+                            <a class="hn-link" href="https://github.com/Acmion/CshtmlComponent">
+                                <span class="hn-content">
+                                    GitHub
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="hn-overlay" for="hn-nav-cb">
+                </label>
+            </nav>
+        </header>
+
+        <div class="scroll-anchor-height"></div>
+
+        <main class="container">
+            <section>
+                <h1 class="scroll-anchor" id="home">
+                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.0.0
+                </h1>
+
+                <p>
+                    Using components in ASP.NET Core MVC or Razor Pages, out of the box, is annoying to say the least (read: a real PITA).
+                    Tag Helpers do not support Razor syntax, View Components can not access nested child content. Razor Components do not support
+                    runtime compilation and do not work too well in standard MVC or Razor Page projects. <strong>CshtmlComponent</strong>,
+                    from the perspective of an MVC or Razor Pages app, combines the best features of these technologies.
+                </p>
+                <p>
+                    <strong>Note:</strong> This document assumes that you have a good understanding of C#, Razor markup and ASP.NET Core.
+                    <br>
+                    <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a>.</strong>
+                </p>
+
+                <div class="p-2"></div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card bg-light" style="border-color: #24E260;">
+                            <div class="card-body card-body-success">
+                                <h4 class="card-title">
+                                    CshtmlComponent
+                                </h4>
+                                <ul class="feature-list">
+                                    <li>
+                                        Razor Syntax
+                                    </li>
+                                    <li>
+                                        Nested Child Content
+                                    </li>
+                                    <li>
+                                        Runtime Compilation
+                                    </li>
+                                    <li>
+                                        MVC &amp; Razor Pages
+                                    </li>
+                                    <li>
+                                        Lenient File Structure
+                                    </li>
+                                    <li>
+                                        Named Slots
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light border-danger">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    Tag Helper
+                                </h4>
+                                <ul class="feature-list">
+                                    <li class="feature-not-enabled">
+                                        Razor Syntax
+                                    </li>
+                                    <li>
+                                        Nested Child Content
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Runtime Compilation
+                                    </li>
+                                    <li>
+                                        MVC &amp; Razor Pages
+                                    </li>
+                                    <li>
+                                        Lenient File Structure
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Named Slots
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light border-danger">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    View Component
+                                </h4>
+                                <ul class="feature-list">
+                                    <li>
+                                        Razor Syntax
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Nested Child Content
+                                    </li>
+                                    <li>
+                                        Runtime Compilation
+                                    </li>
+                                    <li>
+                                        MVC &amp; Razor Pages
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Lenient File Structure
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Named Slots
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-light border-danger">
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    Razor Component
+                                </h4>
+                                <ul class="feature-list">
+                                    <li>
+                                        Razor Syntax
+                                    </li>
+                                    <li>
+                                        Nested Child Content
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Runtime Compilation
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        MVC &amp; Razor Pages
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Lenient File Structure
+                                    </li>
+                                    <li>
+                                        Named Slots
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section>
+                <h2 class="scroll-anchor" id="example">
+                    Example
+                </h2>
+
+                <p>
+                    This is the C# source code of a CshtmlComponent with nested components, named slots, attributes and pure HTML content.
+                </p>
+
+                <pre><code id="basic-example-code">using Acmion.CshtmlComponent;<br>using Microsoft.AspNetCore.Mvc;<br>using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Linq;<br>using System.Threading.Tasks;<br><br>namespace SampleRazorPagesApplication<br>{<br>    // The associated tag of the component.<br>    [HtmlTargetElement("ExampleComponent")]<br>    public class ExampleComponent : CshtmlComponentBase<br>    {<br>        // Explicitly named attribute.<br>        [HtmlAttributeName("Title")]<br>        public string Title { get; set; } = "";<br><br>        // These properties will default to their kebab-cased variants.<br>        public string FontSize { get; set; } = "1rem";<br>        public string BackgroundColor { get; set; } = "rgba(255, 0, 0, 0.1)";<br><br>        // A not HTML bound property, which can not be accessed as a attribute in the component tag.<br>        [HtmlAttributeNotBound]<br>        public string UppercaseTitle { get; set; } = "";<br><br>        public ExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/ExampleComponent.cshtml", "div", TagMode.StartTagAndEndTag)<br>        {<br>            // The constructor. <br>            // Note: Only dependency injected arguments.<br><br>            // "/Pages/Components/Example/ExampleComponent.cshtml" is the path to the associated .cshtml file.<br>            // "div" is the output tag name.<br>            // TagMode.StartTagAndEndTag determines the tag structure, optional parameter. Defaults to TagMode.StartTagAndEndTag.<br><br>            // Properties should not be accessed here, because they will not yet be set.<br>        }<br><br>        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // This method is called just before the associated .cshtml file is execute.<br>            // Properties have been initialized and can be accessed.<br><br>            // The property ChildContent is a string that contains the child content.<br><br>            // Use this method to edit some other properties or fields.<br><br>            UppercaseTitle = Title.ToUpperInvariant();<br><br>            return base.ProcessComponent(context, output);<br>        }<br>    }<br>}<br></code></pre>
+
+                <p>
+                    This is the CSHTML source code of the corresponding basic CshtmlComponent.
+                </p>
+
+                <pre><code id="basic-example-cshtml-code">@* Reference the associated component as model. **@<br>@using SampleRazorPagesApplication<br>@model ExampleComponent<br><br>@* The content of the component. **@<br>&lt;div class="example-component" style="padding: 1rem; background-color: @Model.BackgroundColor; font-size: @Model.FontSize"&gt;<br>    &lt;h1 style="margin: 0; line-height: 100%"&gt;<br>        ExampleComponent: @Model.UppercaseTitle<br>    &lt;/h1&gt;<br><br>    &lt;br /&gt;<br>    <br>    &lt;div  class="example-component-slot0" style="background: rgba(0, 255, 0, 0.1); padding: 1rem;"&gt;<br>        @* Render another named slot. **@<br>        @Html.Raw(Model.NamedSlots["SlotName0"])<br>    &lt;/div&gt;<br>    <br>    &lt;br /&gt;<br>    <br>    &lt;div class="example-component-child-content" style="background: rgba(0, 0, 255, 0.1); padding: 1rem;"&gt;<br>        @* Render the child content. **@<br>        @Html.Raw(Model.ChildContent)<br>    &lt;/div&gt;<br>    <br>    &lt;br /&gt;<br>    <br>    &lt;div class="example-component-slot1" style="background: rgba(255, 0, 0, 0.1); padding: 1rem;"&gt;<br>        @* Render a named slot. **@<br>        @Html.Raw(Model.NamedSlots["SlotName1"])<br>    &lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+
+                <p>
+                    This is how the component is instantiated from Razor.
+                </p>
+
+                <pre><code id="basic-example-instantiation-code">&lt;ExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)"&gt;<br>    &lt;div&gt;<br>        Some custom HTML content.<br>        &lt;Box&gt;<br>            Supports nested components.<br>        &lt;/Box&gt;<br>    &lt;/div&gt;<br>    &lt;CshtmlSlot Name="SlotName0"&gt;<br>        Some custom HTML content within a named slot. The parent component decides where<br>        this content is placed.<br>    &lt;/CshtmlSlot&gt;<br>    &lt;CshtmlSlot Name="SlotName1"&gt;<br>        Additional custom HTML content within a second named slot.<br>        &lt;Box&gt;<br>            Supports nested components.<br>        &lt;/Box&gt;<br>    &lt;/CshtmlSlot&gt;<br>&lt;/ExampleComponent&gt;</code></pre>
+
+            </section>
+
+            <section>
+                <h2 class="scroll-anchor" id="the-code">
+                    The Code
+                </h2>
+
+                <p>
+                    This is the entire source code of <strong>CshtmlComponent</strong>.
+                </p>
+
+                <pre><code id="the-code-code">using Microsoft.AspNetCore.Html;<br>using Microsoft.AspNetCore.Mvc;<br>using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Mvc.ViewFeatures;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Linq;<br>using System.Text;<br>using System.Threading.Tasks;<br><br>namespace Acmion.CshtmlComponent<br>{<br>    public abstract class CshtmlComponentBase : TagHelper<br>    {<br>        private static string CshtmlComponentContextComponentStackKey = "CshtmlComponentContextComponentStack";<br><br>        [ViewContext]<br>        [HtmlAttributeNotBound]<br>        public ViewContext ViewContext <br>        { <br>            get { return _viewContext; } <br>            set { SetViewContext(value); } <br>        }<br><br>        [HtmlAttributeNotBound]<br>        public string? PartialViewName { get; set; }<br><br>        [HtmlAttributeNotBound]<br>        public string? OutputTagName { get; set; }<br>        <br>        [HtmlAttributeNotBound]<br>        public TagMode OutputTagMode { get; set; }<br><br>        [HtmlAttributeNotBound]<br>        public string ChildContent { get; set; }<br><br>        [HtmlAttributeNotBound]<br>        public Dictionary&lt;string, string&gt; NamedSlots { get; set; } <br><br>        [HtmlAttributeNotBound]<br>        public CshtmlComponentBase? ParentComponent { get; set; }<br><br>        private IHtmlHelper _htmlHelper;<br>        private ViewContext _viewContext;<br><br>        public CshtmlComponentBase(IHtmlHelper htmlHelper, string? partialViewName, string? outputTagName, TagMode outputTagMode = TagMode.StartTagAndEndTag)<br>        {<br>            // IHtmlHelper htmlHelper is dependency injected by ASP.NET Core<br>            // string partialViewName should be provided by the class that implements CshtmlComponentBase<br>            // string outputTagName should be provided by the class that implements CshtmlComponentBase<br>            // TagMode outputTagMode determines the tag structure<br><br>            _htmlHelper = htmlHelper;<br>            PartialViewName = partialViewName;<br>            OutputTagName = outputTagName;<br>            OutputTagMode = outputTagMode;<br><br>            // Will be replaced in ProcessAsync.<br>            ChildContent = "";<br><br>            // Will be populated by possible CshtmlComponentSlots.<br>            NamedSlots = new Dictionary&lt;string, string&gt;();<br><br>            // Will be replaced in Init.<br>            ParentComponent = null;<br><br>            // Will be replaced in SetViewContext.<br>            _viewContext = null!; <br>        }<br><br>        private void SetViewContext(ViewContext vc)<br>        {<br>            // Sets the ViewContext.<br>            // Called automatically by ASP.NET Core<br><br>            _viewContext = vc;<br><br>            ((IViewContextAware)_htmlHelper).Contextualize(ViewContext);<br>        }<br><br>        <br>        private Stack&lt;CshtmlComponentBase&gt; GetParentComponentList(TagHelperContext context) <br>        {<br>            return (context.Items[CshtmlComponentContextComponentStackKey] as Stack&lt;CshtmlComponentBase&gt;)!;<br>        }<br>        private void SetParentComponentList(TagHelperContext context, Stack&lt;CshtmlComponentBase&gt; parentComponentList)<br>        {<br>            context.Items[CshtmlComponentContextComponentStackKey] = parentComponentList;<br>        }<br><br>        protected virtual Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // Classes that inherit CshtmlComponentBase can override this method to edit properties etc.<br><br>            return Task.CompletedTask;<br>        }<br><br>        public override sealed void Init(TagHelperContext context)<br>        {<br>            // Initialize <br><br>            if (!context.Items.ContainsKey(CshtmlComponentContextComponentStackKey))<br>            {<br>                var parentComponentList = new Stack&lt;CshtmlComponentBase&gt;();<br><br>                ParentComponent = null;<br>                parentComponentList.Push(this);<br><br>                SetParentComponentList(context, parentComponentList);<br>            }<br>            else <br>            {<br>                var parentComponentList = GetParentComponentList(context);<br><br>                ParentComponent = parentComponentList.Peek();<br><br>                parentComponentList.Push(this);<br>            }<br><br>            base.Init(context);<br>        }<br><br>        public override sealed void Process(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // Method unoverridable in classes that inherit CshtmlComponentBase.<br><br>            base.Process(context, output);<br>        }<br><br>        public override sealed async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // Process the component.<br>            // Method unoverridable in classes that inherit CshtmlComponentBase.<br><br>            ChildContent = (await output.GetChildContentAsync()).GetContent();<br><br>            await ProcessComponent(context, output);<br><br>            var parentComponentList = GetParentComponentList(context);<br>            parentComponentList.Pop();<br><br>            output.TagName = OutputTagName;<br>            output.TagMode = OutputTagMode;<br><br>            if (PartialViewName != null) <br>            {<br>                var content = await _htmlHelper.PartialAsync(PartialViewName, this);<br>                output.Content.SetHtmlContent(content);<br>            }<br>        }<br>        <br>    }<br>}<br></code></pre>
+
+                <p>
+                    This is the entire source code of <strong>CshtmlComponentSlot</strong>.
+                </p>
+
+                <pre><code id="the-code-slot-code">using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Text;<br>using System.Threading.Tasks;<br><br>namespace Acmion.CshtmlComponent<br>{<br>    [HtmlTargetElement("CshtmlSlot")]<br>    public class CshtmlComponentSlot : CshtmlComponentBase<br>    {<br>        [HtmlAttributeName("Name")]<br>        public string Name { get; set; }<br><br>        public CshtmlComponentSlot(IHtmlHelper htmlHelper) : base(htmlHelper, null, null)<br>        {<br>            // Will be replaced when initialized<br>            Name = "";<br>        }<br><br>        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            if (ParentComponent != null) <br>            {<br>                ParentComponent.NamedSlots[Name] = ChildContent;<br>            }<br><br>            output.SuppressOutput();<br><br>            return base.ProcessComponent(context, output);<br>        }<br>    }<br>}<br></code></pre>
+
+            </section>
+
+            <section>
+                <h2 class="scroll-anchor" id="usage">
+                    Usage
+                </h2>
+
+                <p>
+                    To create <code>ExampleComponent</code> with CshtmlComponent, just do the following:
+                </p>
+                <ol>
+                    <li>
+                        <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a></strong> and add the following
+                        to a <code>_ViewImports.cshtml</code> file: <code>@addTagHelper *, Acmion.CshtmlComponent</code>. Alternatively, copy the code from
+                        <a href="#the-code">The Code</a> and paste it into <code>.cs</code> files in your project.
+                    </li>
+                    <li>
+                        Create the following files <code>ExampleComponent.cshtml.cs</code> and <code>ExampleComponent.cshtml</code> under
+                        the <code>Pages</code> or <code>Views</code> directory, depending on your project type (and other configurations).
+                    </li>
+                    <li>
+                        In <code>ExampleComponent.cs</code>:
+                        <ol>
+                            <li>
+                                Inherit <code>CshtmlComponentBase</code>.
+                            </li>
+                            <li>
+                                Implement the constructor so that all arguments are dependency injected arguments. In most cases,
+                                it is enough that <code>IHtmlHelper htmlHelper</code> is the only argument. However, in the <code>base</code>
+                                call, you must give the path to <code>ExampleComponent.cshtml</code> and what output tag name the component
+                                uses. See more about output tag names in the
+                                <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring">TagHelper docs</a>.
+                                <code>TagMode</code> might have to be defined, especially if using selfclosing tags, but this is optional.
+                            </li>
+                            <li>
+                                Add <code>[HtmlTargetElement("ExampleComponentTag")]</code> to the component class, where
+                                <code>ExampleComponentTag</code> is the tag that the component will be associated with.
+                            </li>
+                            <li>
+                                Optionally, specify how the tag should be closed in <code>HtmlTargetElement</code>, see more about how this
+                                is achieved in the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring">TagHelper docs</a>.
+                            </li>
+                            <li>
+                                List all component attributes as C# properties. ASP.NET Core will translate the properties to their kebabcased
+                                variants, unless otherwise specified with <code>[HtmlAttributeName("AttributeName")]</code>, where
+                                <code>AttributeName</code> is the name of the attribute.
+                            </li>
+                            <li>
+                                Create fields or properties for all other values you wish to use in <code>ExampleComponent.cshtml</code>.
+                            </li>
+                            <li>
+                                Optionally, override <code>protected virtual Task ProcessComponent()</code>, which is called before
+                                <code>ExampleComponent.cshtml</code> is executed. Here you can extract information from properties and
+                                access other fields etc. This can not be done in the constructor, since any provided properties
+                                will not have been set yet. The nested child content can be accessed in this method by accessing
+                                <code>ChildContent</code>. The named slots can be accessed by accessing <code>NamedSlots</code>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        In <code>ExampleComponent.cshtml</code>:
+                        <ol>
+                            <li>
+                                Set the model to <code>ExampleComponent</code> with <code>@model ExampleComponent</code>. You may need to
+                                add appropriate using statements.
+                            </li>
+                            <li>
+                                Component properties and field are accessible with <code>Model.PropertyName</code>.
+                            </li>
+                            <li>
+                                The nested child content can be accessed with <code>Model.ChildContent</code>. To render the child content,
+                                you can use <code>Html.Raw(Model.ChildContent)</code>, but note that this does not encode the HTML, which means
+                                that XSS attacks are possible if non-validated user input is used as child content.
+                            </li>
+                            <li>
+                                Any named slots can be accessed with <code>Model.NamedSlots</code>. To render the slot content,
+                                you can use <code>Html.Raw(Model.NamedSlots["SlotName"])</code>, but note that this does not encode the HTML, which means
+                                that XSS attacks are possible if non-validated user input is used as child content. The named lots have to be defined, in
+                                the initializing context, with <code>&lt;CshtmlSlot Name="SlotName"&gt;[CONTENT HERE]&lt;CshtmlSlot&gt;</code>. See the example
+                                in <a href="#example">Example</a>.
+                            </li>
+                            <li>
+                                Render your markup and use <code>.cshtml</code> files as you wish.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        Add a reference to the newly created component by adding <code>@addTagHelper *, NameOfTheProjectInWhichExampleComponentResides</code>,
+                        where <code>NameOfTheProjectInWhichExampleComponentResides</code> is the name of the project in which ExampleComponent can be found,
+                        to a <code>_ViewImports.cshtml</code> file.
+                    </li>
+                    <li>
+                        Initialize <code>ExampleComponent</code> on a page and enjoy!
+                    </li>
+                </ol>
+                <p></p>
+
+                <p>
+                    <strong>Notes:</strong>
+
+                </p>
+                <ul>
+                    <li>
+                        See the sample project in the <a href="https://github.com/Acmion/CshtmlComponent.git">CshtmlComponent GitHub repository</a> for concrete
+                        examples.
+                    </li>
+                    <li>
+                        A CshtmlComponent is just a TagHelper with some "magic". In practice, everything that applies to
+                        ASP.NET Core TagHelpers apply to CshtmlComponents.
+                    </li>
+                    <li>
+                        The entire CshtmlComponent is passed as Model to the <code>.cshtml</code> file. This includes properties
+                        inherited from TagHelper.
+                    </li>
+                </ul>
+                <p></p>
+
+            </section>
+
+            <section>
+                <h2 class="scroll-anchor" id="change-log">
+                    Changelog
+                </h2>
+
+                <section>
+                    <h4>
+                        V2.0.0
+                    </h4>
+                    <a href="/">
+                        V2.0.0 Documentation
+                    </a>
+                    <p>
+                        Published: Sep 19, 2020
+                    </p>
+                    <p>
+                        Breaking changes. Added support for named slots and added tag helper context and output as arguments
+                        to <code>ProcessComponent</code>.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>
+                        V1.1.0
+                    </h4>
+                    <a href="/v1.1.0/">
+                        V1.1.0 Documentation
+                    </a>
+                    <p>
+                        Published: Sep 17, 2020
+                    </p>
+                    <p>
+                        Added support for <code>TagMode</code>, which provides some extra customizability.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>
+                        V1.0.0
+                    </h4>
+                    <a href="/v1.0.0/">
+                        V1.0.0 Documentation
+                    </a>
+                    <p>
+                        Published: Sep 15, 2020
+                    </p>
+                    <p>
+                        The initial release.
+                    </p>
+                </section>
+
+
+            </section>
+
+            <section>
+                <h2 class="scroll-anchor" id="credits">
+                    Credits
+                </h2>
+
+                <p>
+                    CshtmlComponent was developed by <a href="https://acmion.com">Acmion</a> <a href="https://github.com/Acmion">(GitHub)</a>.
+                </p>
+
+                <p>
+                    Contribute to CshtmlComponent in it's <a href="https://github.com/Acmion/CshtmlComponent">GitHub repository</a>.
+                </p>
+
+            </section>
+        </main>
+
+        <div style="height: 200px"></div>
+        <div>
+            <script src="/Web/js/version.js"></script>
+        </div>
+
+    </body>
+
+</html>

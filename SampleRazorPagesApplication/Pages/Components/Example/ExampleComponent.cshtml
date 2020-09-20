@@ -2,6 +2,32 @@
 @using SampleRazorPagesApplication
 @model ExampleComponent
 
+@* Content that is rendered only for the first component per request, 
+   regardless of the number of instantiated components. Requires dependency
+   injection in Startup.cs: 
+   services.AddScoped<ICshtmlComponentTracker, CshtmlComponentTracker>();
+*@
+<CshtmlInitial Context="@Model">
+    @* CSS stylesheet *@
+    <link rel="stylesheet" href="~/css/example-component.css" />
+    
+    @* JS that is executed immediately. *@
+    <script src="~/js/example-component.js"></script>
+
+    @* JS that is executed after body is loaded. *@
+    <script src="~/js/example-component.js" defer></script>
+
+    @* Inline JS *@
+    <script>
+        function onDocumentLoad()
+        {
+            console.log("ExampleComponent count: " + document.querySelectorAll(".example-component").length);
+        }
+
+        window.addEventListener("load", onDocumentLoad);
+    </script>
+</CshtmlInitial>
+
 @* The content of the component. **@
 <div class="example-component" style="padding: 1rem; background-color: @Model.BackgroundColor; font-size: @Model.FontSize">
     <h1 style="margin: 0; line-height: 100%">
@@ -9,21 +35,21 @@
     </h1>
 
     <br />
-    
-    <div  class="example-component-slot0" style="background: rgba(0, 255, 0, 0.1); padding: 1rem;">
+
+    <div class="example-component-slot0" style="background: rgba(0, 255, 0, 0.1); padding: 1rem;">
         @* Render another named slot. **@
         @Html.Raw(Model.NamedSlots["SlotName0"])
     </div>
-    
+
     <br />
-    
+
     <div class="example-component-child-content" style="background: rgba(0, 0, 255, 0.1); padding: 1rem;">
         @* Render the child content. **@
         @Html.Raw(Model.ChildContent)
     </div>
-    
+
     <br />
-    
+
     <div class="example-component-slot1" style="background: rgba(255, 0, 0, 0.1); padding: 1rem;">
         @* Render a named slot. **@
         @Html.Raw(Model.NamedSlots["SlotName1"])

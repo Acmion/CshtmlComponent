@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>
-            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.0.0
+            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.1.0
         </title>
 
         <meta name="description" content="CshtmlComponent, a component for ASP.NET Core MVC and Razor Pages. No Blazor.">
@@ -131,7 +131,7 @@
         <main class="container">
             <section>
                 <h1 class="scroll-anchor" id="home">
-                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.0.0
+                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.1.0
                 </h1>
             
                 <p>
@@ -310,6 +310,18 @@
                 </p>
 
                 <pre><code id="the-code-slot-code"></code></pre>
+
+                <p>
+                    This is the entire source code of <strong>CshtmlComponentInitial</strong>.
+                </p>
+                
+                <pre><code id="the-code-initial-code"></code></pre>
+
+                <p>
+                    This is the entire source code of <strong>CshtmlComponentTracker</strong>.
+                </p>
+                
+                <pre><code id="the-code-tracker-code"></code></pre>
             
             </section>
 
@@ -392,6 +404,12 @@
                                     in <a href="#example">Example</a>. 
                                 </li>
                                 <li>
+                                    Use <code>&lt;CshtmlInitial Context="@Model"&gt;[CONTENT HERE]&lt;CshtmlInitial&gt;</code> to render some once for an entire
+                                    request, regardless of the number of instantiated components. Here you can, for example, add a reference to a stylesheet or to 
+                                    some JS code. <strong>NOTE:</strong> In <code>Startup.cs ConfigureServices</code> you must add a scoped dependency injection:
+                                    <code>services.AddScoped&lt;ICshtmlComponentTracker, CshtmlComponentTracker&gt;();</code>.
+                                </li>
+                                <li>
                                     Render your markup and use <code>.cshtml</code> files as you wish.
                                 </li>
                             </ol>
@@ -435,9 +453,25 @@
 
                 <section>
                     <h4>
-                        V2.0.0
+                        V2.1.0
                     </h4>
                     <a href="/">
+                        V2.1.0 Documentation
+                    </a>
+                    <p>
+                        Published: Sep 20, 2020
+                    </p>
+                    <p>
+                        Added support for <code>CshtmlInitial</code>, which allows component code be rendered once
+                        per request, regardless of the number of instantiated components.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>
+                        V2.0.0
+                    </h4>
+                    <a href="/v2.0.0/">
                         V2.0.0 Documentation
                     </a>
                     <p>
@@ -505,12 +539,18 @@
                 {
                     var cshtmlComponentCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentBase.cs");
                     var cshtmlComponentSlotCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentSlot.cs");
+                    var cshtmlComponentInitialCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentInitial.cs");
+                    var cshtmlComponentTrackerCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentTracker.cs");
 
                     var cshtmlComponentCode = await (await cshtmlComponentCodeFetch).text();
                     var cshtmlComponentSlotCode = await (await cshtmlComponentSlotCodeFetch).text();
+                    var cshtmlComponentInitialCode = await (await cshtmlComponentInitialCodeFetch).text();
+                    var cshtmlComponentTrackerCode = await (await cshtmlComponentTrackerCodeFetch).text();
 
                     document.getElementById("the-code-code").innerText = cshtmlComponentCode; 
                     document.getElementById("the-code-slot-code").innerText = cshtmlComponentSlotCode; 
+                    document.getElementById("the-code-initial-code").innerText = cshtmlComponentInitialCode;
+                    document.getElementById("the-code-tracker-code").innerText = cshtmlComponentTrackerCode; 
                 }
 
                 async function loadBasicExample()
