@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
+<html lang="en"><head>
         <title>
-            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.2.0
+            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.1.0
         </title>
 
         <meta name="description" content="CshtmlComponent, a component for ASP.NET Core MVC and Razor Pages. No Blazor.">
@@ -12,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         
         <link rel="apple-touch-icon" sizes="180x180" href="visualization/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="visualization/favicon/favicon-32x32.png">
@@ -27,10 +26,11 @@
         <!-- Libraries -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.acmion.com/acmion/hyper-nav/dist/hyper-nav-default.min.css" />
+        <link rel="stylesheet" href="https://cdn.acmion.com/acmion/hyper-nav/dist/hyper-nav-default.min.css">
 
         <!-- Custom -->
-        <link rel="stylesheet" href="/Web/css/main.css" />
+        <link rel="stylesheet" href="/Web/css/main.css">
+        <script src="/Web/js/version.js"></script>
     </head>
     <body>
         <header>
@@ -130,7 +130,7 @@
         <main class="container">
             <section>
                 <h1 class="scroll-anchor" id="home">
-                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.2.0
+                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V2.1.0
                 </h1>
             
                 <p>
@@ -141,7 +141,7 @@
                 </p>
                 <p>
                     <strong>Note:</strong> This document assumes that you have a good understanding of C#, Razor markup and ASP.NET Core.
-                    <br />
+                    <br>
                     <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a>.</strong>
                 </p>
             
@@ -165,16 +165,13 @@
                                         Runtime Compilation
                                     </li>
                                     <li>
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li>
                                         Lenient File Structure
                                     </li>
                                     <li>
                                         Named Slots
-                                    </li>
-                                    <li>
-                                        Reference Capturing
                                     </li>
                                 </ul>
                             </div>
@@ -197,16 +194,13 @@
                                         Runtime Compilation
                                     </li>
                                     <li>
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li>
                                         Lenient File Structure
                                     </li>
                                     <li class="feature-not-enabled">
                                         Named Slots
-                                    </li>
-                                    <li class="feature-not-enabled">
-                                        Reference Capturing
                                     </li>
                                 </ul>
                             </div>
@@ -229,16 +223,13 @@
                                         Runtime Compilation
                                     </li>
                                     <li>
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li class="feature-not-enabled">
                                         Lenient File Structure
                                     </li>
                                     <li class="feature-not-enabled">
                                         Named Slots
-                                    </li>
-                                    <li class="feature-not-enabled">
-                                        Reference Capturing
                                     </li>
                                 </ul>
                             </div>
@@ -261,16 +252,13 @@
                                         Runtime Compilation
                                     </li>
                                     <li class="feature-not-enabled">
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li class="feature-not-enabled">
                                         Lenient File Structure
                                     </li>
                                     <li>
                                         Named Slots
-                                    </li>
-                                    <li>
-                                        Reference Capturing
                                     </li>
                                 </ul>
                             </div>
@@ -289,19 +277,19 @@
                     This is the C# source code of a CshtmlComponent with nested components, named slots, attributes and pure HTML content.
                 </p>
             
-                <pre><code id="basic-example-code"></code></pre>
+                <pre><code id="basic-example-code">using Acmion.CshtmlComponent;<br>using Microsoft.AspNetCore.Mvc;<br>using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Linq;<br>using System.Threading.Tasks;<br><br>namespace SampleRazorPagesApplication<br>{<br>    // The associated tag of the component.<br>    [HtmlTargetElement("ExampleComponent")]<br>    public class ExampleComponent : CshtmlComponentBase<br>    {<br>        // Explicitly named attribute.<br>        [HtmlAttributeName("Title")]<br>        public string Title { get; set; } = "";<br><br>        // These properties will default to their kebab-cased variants.<br>        public string FontSize { get; set; } = "1rem";<br>        public string BackgroundColor { get; set; } = "rgba(255, 0, 0, 0.1)";<br><br>        // A not HTML bound property, which can not be accessed as a attribute in the component tag.<br>        [HtmlAttributeNotBound]<br>        public string UppercaseTitle { get; set; } = "";<br><br>        public ExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/ExampleComponent.cshtml", "div", TagMode.StartTagAndEndTag)<br>        {<br>            // The constructor. <br>            // Note: Only dependency injected arguments.<br><br>            // "/Pages/Components/Example/ExampleComponent.cshtml" is the path to the associated .cshtml file.<br>            // "div" is the output tag name.<br>            // TagMode.StartTagAndEndTag determines the tag structure, optional parameter. Defaults to TagMode.StartTagAndEndTag.<br><br>            // Properties should not be accessed here, because they will not yet be set.<br>        }<br><br>        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // This method is called just before the associated .cshtml file is execute.<br>            // Properties have been initialized and can be accessed.<br><br>            // The property ChildContent is a string that contains the child content.<br><br>            // Use this method to edit some other properties or fields.<br><br>            UppercaseTitle = Title.ToUpperInvariant();<br><br>            return base.ProcessComponent(context, output);<br>        }<br>    }<br>}<br></code></pre>
             
                 <p>
                     This is the CSHTML source code of the corresponding basic CshtmlComponent.
                 </p>
 
-                <pre><code id="basic-example-cshtml-code"></code></pre>
+                <pre><code id="basic-example-cshtml-code">@* Reference the associated component as model. **@<br>@using SampleRazorPagesApplication<br>@model ExampleComponent<br><br>@* Content that is rendered only for the first component per request, <br>   regardless of the number of instantiated components. Requires dependency<br>   injection in Startup.cs: <br>   services.AddScoped&lt;ICshtmlComponentTracker, CshtmlComponentTracker&gt;();<br>*@<br>&lt;CshtmlInitial Context="@Model"&gt;<br>    @* CSS stylesheet *@<br>    &lt;link rel="stylesheet" href="~/css/example-component.css" /&gt;<br>    <br>    @* JS that is executed immediately. *@<br>    &lt;script src="~/js/example-component.js"&gt;&lt;/script&gt;<br><br>    @* JS that is executed after body is loaded. *@<br>    &lt;script src="~/js/example-component.js" defer&gt;&lt;/script&gt;<br><br>    @* Inline JS *@<br>    &lt;script&gt;<br>        function onDocumentLoad()<br>        {<br>            console.log("ExampleComponent count: " + document.querySelectorAll(".example-component").length);<br>        }<br><br>        window.addEventListener("load", onDocumentLoad);<br>    &lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br>@* The content of the component. **@<br>&lt;div class="example-component" style="padding: 1rem; background-color: @Model.BackgroundColor; font-size: @Model.FontSize"&gt;<br>    &lt;h1 style="margin: 0; line-height: 100%"&gt;<br>        ExampleComponent: @Model.UppercaseTitle<br>    &lt;/h1&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="example-component-slot0" style="background: rgba(0, 255, 0, 0.1); padding: 1rem;"&gt;<br>        @* Render another named slot. **@<br>        @Html.Raw(Model.NamedSlots["SlotName0"])<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="example-component-child-content" style="background: rgba(0, 0, 255, 0.1); padding: 1rem;"&gt;<br>        @* Render the child content. **@<br>        @Html.Raw(Model.ChildContent)<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="example-component-slot1" style="background: rgba(255, 0, 0, 0.1); padding: 1rem;"&gt;<br>        @* Render a named slot. **@<br>        @Html.Raw(Model.NamedSlots["SlotName1"])<br>    &lt;/div&gt;<br>&lt;/div&gt;<br></code></pre>
 
                 <p>
                     This is how the component is instantiated from Razor.
                 </p>
 
-                <pre><code id="basic-example-instantiation-code"></code></pre>
+                <pre><code id="basic-example-instantiation-code">&lt;ExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)"&gt;<br>    &lt;div&gt;<br>        Some custom HTML content.<br>        &lt;Box&gt;<br>            Supports nested components.<br>        &lt;/Box&gt;<br>    &lt;/div&gt;<br>    &lt;CshtmlSlot Name="SlotName0"&gt;<br>        Some custom HTML content within a named slot. The parent component decides where<br>        this content is placed.<br>    &lt;/CshtmlSlot&gt;<br>    &lt;CshtmlSlot Name="SlotName1"&gt;<br>        Additional custom HTML content within a second named slot.<br>        &lt;Box&gt;<br>            Supports nested components.<br>        &lt;/Box&gt;<br>    &lt;/CshtmlSlot&gt;<br>&lt;/ExampleComponent&gt;</code></pre>
 
             </section>
 
@@ -314,37 +302,25 @@
                     This is the entire source code of <strong>CshtmlComponent</strong>.
                 </p>
             
-                <pre><code id="the-code-code"></code></pre>
+                <pre><code id="the-code-code">using Microsoft.AspNetCore.Html;<br>using Microsoft.AspNetCore.Mvc;<br>using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Mvc.ViewFeatures;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Linq;<br>using System.Text;<br>using System.Threading.Tasks;<br><br>namespace Acmion.CshtmlComponent<br>{<br>    public abstract class CshtmlComponentBase : TagHelper<br>    {<br>        private static string CshtmlComponentContextComponentStackKey = "CshtmlComponentContextComponentStack";<br><br>        [ViewContext]<br>        [HtmlAttributeNotBound]<br>        public ViewContext ViewContext <br>        { <br>            get { return _viewContext; } <br>            set { SetViewContext(value); } <br>        }<br><br>        [HtmlAttributeNotBound]<br>        public string? PartialViewName { get; set; }<br><br>        [HtmlAttributeNotBound]<br>        public string? OutputTagName { get; set; }<br>        <br>        [HtmlAttributeNotBound]<br>        public TagMode OutputTagMode { get; set; }<br><br>        [HtmlAttributeNotBound]<br>        public string ChildContent { get; set; }<br><br>        [HtmlAttributeNotBound]<br>        public Dictionary&lt;string, string&gt; NamedSlots { get; set; } <br><br>        [HtmlAttributeNotBound]<br>        public CshtmlComponentBase? ParentComponent { get; set; }<br><br>        private IHtmlHelper _htmlHelper;<br>        private ViewContext _viewContext;<br><br>        public CshtmlComponentBase(IHtmlHelper htmlHelper, string? partialViewName, string? outputTagName, TagMode outputTagMode = TagMode.StartTagAndEndTag)<br>        {<br>            // IHtmlHelper htmlHelper is dependency injected by ASP.NET Core<br>            // string partialViewName should be provided by the class that implements CshtmlComponentBase<br>            // string outputTagName should be provided by the class that implements CshtmlComponentBase<br>            // TagMode outputTagMode determines the tag structure<br><br>            _htmlHelper = htmlHelper;<br>            PartialViewName = partialViewName;<br>            OutputTagName = outputTagName;<br>            OutputTagMode = outputTagMode;<br><br>            // Will be replaced in ProcessAsync.<br>            ChildContent = "";<br><br>            // Will be populated by possible CshtmlComponentSlots.<br>            NamedSlots = new Dictionary&lt;string, string&gt;();<br><br>            // Will be replaced in Init.<br>            ParentComponent = null;<br><br>            // Will be replaced in SetViewContext.<br>            _viewContext = null!; <br>        }<br><br>        private void SetViewContext(ViewContext vc)<br>        {<br>            // Sets the ViewContext.<br>            // Called automatically by ASP.NET Core<br><br>            _viewContext = vc;<br><br>            ((IViewContextAware)_htmlHelper).Contextualize(ViewContext);<br>        }<br><br>        <br>        private Stack&lt;CshtmlComponentBase&gt; GetParentComponentList(TagHelperContext context) <br>        {<br>            return (context.Items[CshtmlComponentContextComponentStackKey] as Stack&lt;CshtmlComponentBase&gt;)!;<br>        }<br>        private void SetParentComponentList(TagHelperContext context, Stack&lt;CshtmlComponentBase&gt; parentComponentList)<br>        {<br>            context.Items[CshtmlComponentContextComponentStackKey] = parentComponentList;<br>        }<br><br>        protected virtual Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // Classes that inherit CshtmlComponentBase can override this method to edit properties etc.<br><br>            return Task.CompletedTask;<br>        }<br><br>        public override sealed void Init(TagHelperContext context)<br>        {<br>            // Initialize <br><br>            if (!context.Items.ContainsKey(CshtmlComponentContextComponentStackKey))<br>            {<br>                var parentComponentList = new Stack&lt;CshtmlComponentBase&gt;();<br><br>                ParentComponent = null;<br>                parentComponentList.Push(this);<br><br>                SetParentComponentList(context, parentComponentList);<br>            }<br>            else <br>            {<br>                var parentComponentList = GetParentComponentList(context);<br><br>                ParentComponent = parentComponentList.Peek();<br><br>                parentComponentList.Push(this);<br>            }<br><br>            base.Init(context);<br>        }<br><br>        public override sealed void Process(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // Method unoverridable in classes that inherit CshtmlComponentBase.<br><br>            base.Process(context, output);<br>        }<br><br>        public override sealed async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // Process the component.<br>            // Method unoverridable in classes that inherit CshtmlComponentBase.<br><br>            ChildContent = (await output.GetChildContentAsync()).GetContent();<br><br>            await ProcessComponent(context, output);<br><br>            var parentComponentList = GetParentComponentList(context);<br>            parentComponentList.Pop();<br><br>            output.TagName = OutputTagName;<br>            output.TagMode = OutputTagMode;<br><br>            if (PartialViewName != null) <br>            {<br>                var content = await _htmlHelper.PartialAsync(PartialViewName, this);<br>                output.Content.SetHtmlContent(content);<br>            }<br>        }<br>        <br>    }<br>}<br></code></pre>
 
                 <p>
                     This is the entire source code of <strong>CshtmlComponentSlot</strong>.
                 </p>
 
-                <pre><code id="the-code-slot-code"></code></pre>
+                <pre><code id="the-code-slot-code">using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Text;<br>using System.Threading.Tasks;<br><br>namespace Acmion.CshtmlComponent<br>{<br>    [HtmlTargetElement("CshtmlSlot")]<br>    public class CshtmlComponentSlot : CshtmlComponentBase<br>    {<br>        [HtmlAttributeName("Name")]<br>        public string Name { get; set; }<br><br>        public CshtmlComponentSlot(IHtmlHelper htmlHelper) : base(htmlHelper, null, null)<br>        {<br>            // Will be replaced when initialized<br>            Name = "";<br>        }<br><br>        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            if (ParentComponent != null) <br>            {<br>                ParentComponent.NamedSlots[Name] = ChildContent;<br>            }<br><br>            output.SuppressOutput();<br><br>            return base.ProcessComponent(context, output);<br>        }<br>    }<br>}<br></code></pre>
 
                 <p>
                     This is the entire source code of <strong>CshtmlComponentInitial</strong>.
                 </p>
                 
-                <pre><code id="the-code-initial-code"></code></pre>
+                <pre><code id="the-code-initial-code">using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Text;<br>using System.Threading.Tasks;<br><br>namespace Acmion.CshtmlComponent<br>{<br>    [HtmlTargetElement("CshtmlInitial")]<br>    public class CshtmlComponentInitial : CshtmlComponentBase<br>    {<br>        [HtmlAttributeName("Context")]<br>        public CshtmlComponentBase Context { get; set; }<br><br>        private ICshtmlComponentTracker _cshtmlComponentCounter;<br><br><br>        // ICshtmlComponentTracker cshtmlComponentCounter must be dependency injected in Startup.cs<br>        public CshtmlComponentInitial(IHtmlHelper htmlHelper, ICshtmlComponentTracker cshtmlComponentCounter) : base(htmlHelper, null, null)<br>        {<br>            Context = null!;<br><br>            _cshtmlComponentCounter = cshtmlComponentCounter;<br>        }<br><br>        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            var contextComponentType = Context.GetType();<br><br>            if (_cshtmlComponentCounter.HasComponentTypeBeenInstantiated(contextComponentType))<br>            {<br>                _cshtmlComponentCounter.AddInstantiatedComponentType(contextComponentType);<br><br>                output.Content.SetHtmlContent(ChildContent);<br>            }<br>            else <br>            {<br>                output.SuppressOutput();<br>            }<br><br><br>            return base.ProcessComponent(context, output);<br>        }<br><br><br>    }<br>}<br></code></pre>
 
                 <p>
                     This is the entire source code of <strong>CshtmlComponentTracker</strong>.
                 </p>
                 
-                <pre><code id="the-code-tracker-code"></code></pre>
-
-                <p>
-                    This is the entire source code of <strong>CshtmlComponentReference</strong>.
-                </p>
-                
-                <pre><code id="the-code-reference-code"></code></pre>
-
-                <p>
-                    This is the entire source code of <strong>CshtmlComponentReferenceableBase</strong>.
-                </p>
-                
-                <pre><code id="the-code-referenceable-code"></code></pre>
+                <pre><code id="the-code-tracker-code">using System;<br>using System.Collections.Generic;<br>using System.Text;<br><br>namespace Acmion.CshtmlComponent<br>{<br>    public interface ICshtmlComponentTracker<br>    {<br>        void AddInstantiatedComponentType(Type type);<br>        bool HasComponentTypeBeenInstantiated(Type type);<br>    }<br><br>    public class CshtmlComponentTracker : ICshtmlComponentTracker<br>    {<br>        public HashSet&lt;Type&gt; InstantiatedComponentTypeSet { get; set; } = new HashSet&lt;Type&gt;();<br><br>        public CshtmlComponentTracker() <br>        {<br><br>        }<br><br>        public void AddInstantiatedComponentType(Type type) <br>        {<br>            InstantiatedComponentTypeSet.Add(type);<br>        }<br><br>        public bool HasComponentTypeBeenInstantiated(Type type) <br>        {<br>            return !InstantiatedComponentTypeSet.Contains(type);<br>        }<br><br>    }<br>}<br></code></pre>
             
             </section>
 
@@ -355,7 +331,7 @@
             
                 <p>
                     To create <code>ExampleComponent</code> with CshtmlComponent, just do the following: 
-                    <ol>
+                    </p><ol>
                         <li>
                             <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a></strong> and add the following 
                             to a <code>_ViewImports.cshtml</code> file: <code>@addTagHelper *, Acmion.CshtmlComponent</code>. Alternatively, copy the code from 
@@ -369,9 +345,7 @@
                             In <code>ExampleComponent.cs</code>:
                             <ol>
                                 <li>
-                                    Inherit <code>CshtmlComponentBase</code>. If you want to capture the reference to this component, then you
-                                    should instead inherit <code>CshtmlComponentReferenceableBase&lt;ExampleComponent&gt;</code>. No other changes
-                                    necessary.
+                                    Inherit <code>CshtmlComponentBase</code>.
                                 </li>
                                 <li>
                                     Implement the constructor so that all arguments are dependency injected arguments. In most cases,
@@ -448,12 +422,12 @@
                             Initialize <code>ExampleComponent</code> on a page and enjoy!
                         </li>
                     </ol>
-                </p>
+                <p></p>
 
                 <p>
                     <strong>Notes:</strong>
 
-                    <ul>
+                    </p><ul>
                         <li>
                             See the sample project in the <a href="https://github.com/Acmion/CshtmlComponent.git">CshtmlComponent GitHub repository</a> for concrete
                             examples.
@@ -467,7 +441,7 @@
                             inherited from TagHelper.
                         </li>
                     </ul>
-                </p>
+                <p></p>
             
             </section>
 
@@ -478,26 +452,9 @@
 
                 <section>
                     <h4>
-                        V2.2.0
-                    </h4>
-                    <a href="/">
-                        V2.2.0 Documentation
-                    </a>
-                    <p>
-                        Published: Sep 26, 2020
-                    </p>
-                    <p>
-                        Added support component reference capturing. This grants access to component properties outside
-                        the components own context. See the Razor code in <a href="#example">Example</a> for an example 
-                        of how this is done. Note: This feature must be enabled at a component level.
-                    </p>
-                </section>
-
-                <section>
-                    <h4>
                         V2.1.0
                     </h4>
-                    <a href="/v2.1.0/">
+                    <a href="/">
                         V2.1.0 Documentation
                     </a>
                     <p>
@@ -576,48 +533,8 @@
 
         <div style="height: 200px"></div>
         <div>
-            <script>
-                async function loadTheCode()
-                {
-                    var cshtmlComponentCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentBase.cs");
-                    var cshtmlComponentSlotCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentSlot.cs");
-                    var cshtmlComponentInitialCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentInitial.cs");
-                    var cshtmlComponentTrackerCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentTracker.cs");
-                    var cshtmlComponentReferenceCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentReference.cs");
-                    var cshtmlComponentReferenceableCodeFetch = fetch("Acmion.CshtmlComponent/CshtmlComponentReferenceableBase.cs");
-
-                    var cshtmlComponentCode = await (await cshtmlComponentCodeFetch).text();
-                    var cshtmlComponentSlotCode = await (await cshtmlComponentSlotCodeFetch).text();
-                    var cshtmlComponentInitialCode = await (await cshtmlComponentInitialCodeFetch).text();
-                    var cshtmlComponentTrackerCode = await (await cshtmlComponentTrackerCodeFetch).text();
-                    var cshtmlComponentReferenceCode = await (await cshtmlComponentReferenceCodeFetch).text();
-                    var cshtmlComponentReferenceableCode = await (await cshtmlComponentReferenceableCodeFetch).text();
-
-                    document.getElementById("the-code-code").innerText = cshtmlComponentCode; 
-                    document.getElementById("the-code-slot-code").innerText = cshtmlComponentSlotCode; 
-                    document.getElementById("the-code-initial-code").innerText = cshtmlComponentInitialCode;
-                    document.getElementById("the-code-tracker-code").innerText = cshtmlComponentTrackerCode; 
-                    document.getElementById("the-code-reference-code").innerText = cshtmlComponentReferenceCode; 
-                    document.getElementById("the-code-referenceable-code").innerText = cshtmlComponentReferenceableCode; 
-                }
-
-                async function loadBasicExample()
-                {
-                    var cshtmlComponentCodeFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/ExampleComponent.cshtml.cs");
-                    var cshtmlComponentCshtmlFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/ExampleComponent.cshtml");
-                    var cshtmlComponentInstantiationFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/ExampleComponentInstantiation.cshtml");
-
-                    var cshtmlComponentCode = await (await cshtmlComponentCodeFetch).text();
-                    var cshtmlComponentCshtml = await (await cshtmlComponentCshtmlFetch).text();
-                    var cshtmlComponentInstantiation = await (await cshtmlComponentInstantiationFetch).text();
-
-                    document.getElementById("basic-example-code").innerText = cshtmlComponentCode;
-                    document.getElementById("basic-example-cshtml-code").innerText = cshtmlComponentCshtml;
-                    document.getElementById("basic-example-instantiation-code").innerText = cshtmlComponentInstantiation;
-                }
-                loadTheCode();
-                loadBasicExample();
-            </script>
+            <script src="/Web/js/version.js"></script>
         </div>
-    </body>
+    
+</body>
 </html>

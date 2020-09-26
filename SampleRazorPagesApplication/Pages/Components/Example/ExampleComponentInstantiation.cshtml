@@ -1,9 +1,24 @@
 ﻿<ExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)">
     <div>
         Some custom HTML content.
-        <Box>
+
+        @{ 
+            // Assign a variable to component reference. 
+            // The Box component inherits CshtmlComponentReferenceableBase<Box> (a class that inherits CshtmlComponentBase), 
+            // which implements this logic. Useful if component properties have to be used outside the component's own context.
+
+            // This is not the default behavior due to the mandatory, but slightly confusing syntax: 
+            // public Box : CshtmlComponentReferenceableBase<Box> ....
+
+            // See the source code of Pages/Components/Box.cshtml.cs for how the component class looks like.
+
+            var boxReference = new CshtmlComponentReference<Box>();
+        }
+        <Box Reference="boxReference">
             Supports nested components.
         </Box>
+
+        The fontsize of the referenced box is: @boxReference.Component.FontSize
     </div>
     <CshtmlSlot Name="SlotName0">
         Some custom HTML content within a named slot. The parent component decides where

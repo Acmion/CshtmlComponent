@@ -2,6 +2,7 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    var boxReference = new CshtmlComponentReference<Box>();
 }
 
 <div class="text-center">
@@ -11,42 +12,9 @@
 </div>
 
 <div class="container">
-    <ExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)">
-        <div>
-            Some custom HTML content.
-            <Box>
-                Supports nested components.
-            </Box>
-        </div>
-        <CshtmlSlot Name="SlotName0">
-            Some custom HTML content within a named slot. The parent component decides where
-            this content is placed.
-        </CshtmlSlot>
-        <CshtmlSlot Name="SlotName1">
-            Additional custom HTML content within a second named slot.
-            <Box>
-                Supports nested components 222.
-                <ExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)">
-                    <div>
-                        Some custom HTML content.
-                        <Box>
-                            Supports nested components.
-                        </Box>
-                    </div>
-                    <CshtmlSlot Name="SlotName0">
-                        Some custom HTML content within a named slot. The parent component decides where
-                        this content is placed.
-                    </CshtmlSlot>
-                    <CshtmlSlot Name="SlotName1">
-                        Additional custom HTML content within a second named slot.
-                        <Box>
-                            Supports nested components.
-                        </Box>
-                    </CshtmlSlot>
-                </ExampleComponent>
-            </Box>
-        </CshtmlSlot>
-    </ExampleComponent>
+
+    <!-- See the source code of the partial ... -->
+    <partial name="/Pages/Components/Example/ExampleComponentInstantiation.cshtml" />
 
     <br />
 

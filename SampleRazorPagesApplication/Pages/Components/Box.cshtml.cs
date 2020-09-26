@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SampleRazorPagesApplication.Pages.Components
 {
     [HtmlTargetElement("Box")]
-    public class Box : CshtmlComponentBase
+    public class Box : CshtmlComponentReferenceableBase<Box>
     {
         public string FontSize { get; set; } = "1rem";
         public string BackgroundColor { get; set; } = "rgba(255, 0, 0, 0.1)";
