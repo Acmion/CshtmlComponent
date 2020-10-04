@@ -13,6 +13,11 @@ CshtmlComponent - ASP.NET Core MVC and Razor Pages Component.
 + Named Slots
 + Reference Capturing
 
+## Installation & Usage
+1. Install the [Nuget package for CshtmlComponent](https://www.nuget.org/packages/Acmion.CshtmlComponent/)
+2. Add this reference to a `_ViewImports.cshtml` file: `@addTagHelper *, Acmion.CshtmlComponent` .
+3. See details about creating custom components in the [documentation](http://cshtml-component.acmion.com).
+
 ## Sample Component Usage
 With CshtmlComponent one can instantiate components like this:
 
