@@ -4,6 +4,15 @@ CshtmlComponent - ASP.NET Core MVC and Razor Pages Component.
 ## Documentation
 [http://cshtml-component.acmion.com](http://cshtml-component.acmion.com)
 
+## Features
++ Razor Syntax
++ Nested Child Content
++ Runtime Compilation
++ MVC & Razor Pages
++ Lenient File Structure
++ Named Slots
++ Reference Capturing
+
 ## Sample Component Usage
 With CshtmlComponent one can instantiate components like this:
 
