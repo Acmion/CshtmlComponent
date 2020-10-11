@@ -17,14 +17,6 @@ namespace SampleRazorPagesApplication
         [HtmlAttributeName("Title")]
         public string Title { get; set; } = "";
 
-        // These properties will default to their kebab-cased variants.
-        public string FontSize { get; set; } = "1rem";
-        public string BackgroundColor { get; set; } = "rgba(255, 0, 0, 0.1)";
-
-        // A not HTML bound property, which can not be accessed as a attribute in the component tag.
-        [HtmlAttributeNotBound]
-        public string UppercaseTitle { get; set; } = "";
-
         public ExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/ExampleComponent.cshtml", "div", TagMode.StartTagAndEndTag)
         {
             // The constructor. 
@@ -33,22 +25,6 @@ namespace SampleRazorPagesApplication
             // "/Pages/Components/Example/ExampleComponent.cshtml" is the path to the associated .cshtml file.
             // "div" is the output tag name.
             // TagMode.StartTagAndEndTag determines the tag structure, optional parameter. Defaults to TagMode.StartTagAndEndTag.
-
-            // Properties should not be accessed here, because they will not yet be set.
-        }
-
-        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
-        {
-            // This method is called just before the associated .cshtml file is execute.
-            // Properties have been initialized and can be accessed.
-
-            // The property ChildContent is a string that contains the child content.
-
-            // Use this method to edit some other properties or fields.
-
-            UppercaseTitle = Title.ToUpperInvariant();
-
-            return base.ProcessComponent(context, output);
         }
     }
 }

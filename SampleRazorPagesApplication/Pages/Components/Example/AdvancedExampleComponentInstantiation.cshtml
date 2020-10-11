@@ -1,0 +1,19 @@
+﻿<AdvancedExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)">
+    <div>
+        Some custom HTML content.
+        <Box>
+            Supports nested components.
+        </Box>
+    </div>
+    <CshtmlSlot Name="SlotName0">
+        Some custom HTML content within a named slot. The parent component decides where
+        this content is placed.
+    </CshtmlSlot>
+    <AdvancedExampleComponentTypedSlot>
+        Additional custom HTML content within a <strong>typed</strong> slot.
+        See the source code of <code>/Pages/Components/Example/AdvancedExampleComponentTypesSlot.cs</code>.
+        <Box>
+            Supports nested components.
+        </Box>
+    </AdvancedExampleComponentTypedSlot>
+</AdvancedExampleComponent>

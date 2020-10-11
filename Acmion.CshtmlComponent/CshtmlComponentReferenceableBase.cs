@@ -15,7 +15,7 @@ namespace Acmion.CshtmlComponent
             set { _reference = value; value.Component = (ReferencableComponentType)this; }
         }
 
-        protected CshtmlComponentReference<ReferencableComponentType> _reference = null!;
+        private CshtmlComponentReference<ReferencableComponentType> _reference = null!;
 
         public CshtmlComponentReferenceableBase(IHtmlHelper htmlHelper, string? partialViewName, string? outputTagName, TagMode outputTagMode = TagMode.StartTagAndEndTag) : base(htmlHelper, partialViewName, outputTagName, outputTagMode)
         {

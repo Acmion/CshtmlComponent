@@ -2,7 +2,6 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
-    var boxReference = new CshtmlComponentReference<Box>();
 }
 
 <div class="text-center">
@@ -15,6 +14,15 @@
 
     <!-- See the source code of the partial ... -->
     <partial name="/Pages/Components/Example/ExampleComponentInstantiation.cshtml" />
+
+    <br />
+
+    <partial name="/Pages/Components/Example/AdvancedExampleComponentInstantiation.cshtml" />
+
+
+    <br />
+
+    <partial name="/Pages/Components/Example/AdvancedExampleComponentInstantiation.cshtml" />
 
     <br />
 

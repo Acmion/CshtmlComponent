@@ -6,9 +6,11 @@ using Acmion.CshtmlComponent;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SampleRazorPagesApplication.Pages.TestC;
 
 namespace SampleRazorPagesApplication
 {
@@ -24,7 +26,9 @@ namespace SampleRazorPagesApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<ITagHelperComponent, CshtmlComponentInjectionContentHandler>();
             services.AddScoped<ICshtmlComponentTracker, CshtmlComponentTracker>();
+            services.AddScoped<ICshtmlComponentInjectionContentStore, CshtmlComponentInjectionContentStore>();
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }

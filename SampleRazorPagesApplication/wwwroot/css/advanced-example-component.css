@@ -1,0 +1,9 @@
+﻿.advanced-example-component,
+.advanced-example-component-slot0,
+.advanced-example-component-slot1,
+.advanced-example-component-child-content
+{
+    padding: 1rem;
+    border: solid 3px rgba(0, 0, 0, 0.1);
+}
+

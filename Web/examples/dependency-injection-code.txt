@@ -1,0 +1,10 @@
+public void ConfigureServices(IServiceCollection services)
+{
+    // Some other configuration here.
+
+    services.AddScoped<ICshtmlComponentTracker, CshtmlComponentTracker>();
+    services.AddScoped<ITagHelperComponent, CshtmlComponentInjectionContentHandler>();
+    services.AddScoped<ICshtmlComponentInjectionContentStore, CshtmlComponentInjectionContentStore>();
+
+    // Some other configuration here.
+}

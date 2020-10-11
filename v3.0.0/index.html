@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <title>
             CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V3.0.0
@@ -10,10 +11,10 @@
         <meta name="robots" content="index, follow">
         <meta name="language" content="English">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        
+
         <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
         <link rel="apple-touch-icon" sizes="180x180" href="visualization/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="visualization/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="visualization/favicon/favicon-16x16.png">
@@ -27,16 +28,17 @@
         <!-- Libraries -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.acmion.com/acmion/hyper-nav/dist/hyper-nav-default.min.css" />
+        <link rel="stylesheet" href="https://cdn.acmion.com/acmion/hyper-nav/dist/hyper-nav-default.min.css">
 
         <!-- Custom -->
-        <link rel="stylesheet" href="/Web/css/main.css" />
+        <link rel="stylesheet" href="/Web/css/main.css">
     </head>
+
     <body>
         <header>
             <nav class="hn-menu hn-top hn-fixed hn-shadow">
                 <input type="checkbox" name="hn-top-state" class="hn-input-state hn-input-state-nav hn-hide-desktop" id="hn-nav-cb">
-            
+
                 <div class="hn-nav container-md p-0">
                     <div class="hn-section hn-section-brand">
                         <div class="hn-item">
@@ -48,7 +50,7 @@
                                 </span>
                             </a>
                         </div>
-                        
+
                         <div class="hn-spacer"></div>
 
                         <label class="hn-item hn-input hn-input-nav hn-hide-desktop" for="hn-nav-cb">
@@ -63,7 +65,7 @@
                                 </span>
                             </span>
                         </label>
-            
+
                     </div>
                     <div class="hn-section hn-section-body">
                         <div class="hn-spacer"></div>
@@ -119,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <label class="hn-overlay" for="hn-nav-cb">
                 </label>
             </nav>
@@ -132,23 +134,23 @@
                 <h1 class="scroll-anchor" id="home">
                     CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V3.0.0
                 </h1>
-            
+
                 <p>
-                    Using components in ASP.NET Core MVC or Razor Pages, out of the box, is annoying to say the least (read: a real PITA). 
+                    Using components in ASP.NET Core MVC or Razor Pages, out of the box, is annoying to say the least (read: a real PITA).
                     Tag Helpers do not support Razor syntax, View Components can not access nested child content. Razor Components do not support
                     runtime compilation and do not work too well in standard MVC or Razor Page projects. <strong>CshtmlComponent</strong>,
-                    from the perspective of an MVC or Razor Pages app, combines the best features of these technologies. 
+                    from the perspective of an MVC or Razor Pages app, combines the best features of these technologies.
                 </p>
                 <p>
                     <strong>Note:</strong> This document assumes that you have a good understanding of C#, Razor markup and ASP.NET Core.
-                    <br />
+                    <br>
                     <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a>.</strong>
-                    <br />
-                    <strong>See more detailed <a href="#usage">Usage & Installation instructions</a></strong>.
+                    <br>
+                    <strong>See more detailed <a href="#usage">Usage &amp; Installation instructions</a></strong>.
                 </p>
-            
+
                 <div class="p-2"></div>
-            
+
                 <div class="row">
                     <div class="col-md-3">
                         <div class="card bg-light h-100" style="border-color: #24E260;">
@@ -167,7 +169,7 @@
                                         Runtime Compilation
                                     </li>
                                     <li>
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li>
                                         Lenient File Structure
@@ -208,7 +210,7 @@
                                         Runtime Compilation
                                     </li>
                                     <li>
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li>
                                         Lenient File Structure
@@ -249,7 +251,7 @@
                                         Runtime Compilation
                                     </li>
                                     <li>
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li class="feature-not-enabled">
                                         Lenient File Structure
@@ -290,7 +292,7 @@
                                         Runtime Compilation
                                     </li>
                                     <li class="feature-not-enabled">
-                                        MVC & Razor Pages
+                                        MVC &amp; Razor Pages
                                     </li>
                                     <li class="feature-not-enabled">
                                         Lenient File Structure
@@ -345,7 +347,7 @@
                         Inject HTML content to the <code>body</code> tag from a component.
                     </p>
                 </section>
-            
+
             </section>
 
             <section>
@@ -361,26 +363,26 @@
                     <h3 style="margin-top: 0">
                         Basic Example
                     </h3>
-                    
+
                     <p>
                         A basic CshtmlComponent that features <strong>attributes</strong> and <strong>child content</strong>.
                     </p>
-                    
+
                     <section class="indent">
                         <h4>
                             C# Code (ExampleComponent.cshtml.cs)
                         </h4>
-                        <pre><code id="basic-example-code"></code></pre>
+                        <pre><code id="basic-example-code">using Acmion.CshtmlComponent;<br>using Microsoft.AspNetCore.Mvc;<br>using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Linq;<br>using System.Threading.Tasks;<br><br>namespace SampleRazorPagesApplication<br>{<br>    // The associated tag of the component.<br>    [HtmlTargetElement("ExampleComponent")]<br>    public class ExampleComponent : CshtmlComponentBase<br>    {<br>        // Explicitly named attribute.<br>        [HtmlAttributeName("Title")]<br>        public string Title { get; set; } = "";<br><br>        public ExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/ExampleComponent.cshtml", "div", TagMode.StartTagAndEndTag)<br>        {<br>            // The constructor. <br>            // Note: Only dependency injected arguments.<br><br>            // "/Pages/Components/Example/ExampleComponent.cshtml" is the path to the associated .cshtml file.<br>            // "div" is the output tag name.<br>            // TagMode.StartTagAndEndTag determines the tag structure, optional parameter. Defaults to TagMode.StartTagAndEndTag.<br>        }<br>    }<br>}<br></code></pre>
 
                         <h4>
                             Cshtml Code (ExampleComponent.cshtml)
                         </h4>
-                        <pre><code id="basic-example-cshtml-code"></code></pre>
+                        <pre><code id="basic-example-cshtml-code">@* Reference the associated component as model. *@<br>@using SampleRazorPagesApplication<br>@model ExampleComponent<br><br>&lt;!-- The content of the component. --&gt;<br>&lt;div class="example-component" style="border: medium solid rgba(0, 0, 0, 0.1); padding: 1rem;"&gt;<br>    &lt;h1&gt;<br>        ExampleComponent: @Model.Title<br>    &lt;/h1&gt;<br><br>    &lt;div class="example-component-child-content"&gt;<br>        &lt;!-- Render the child content. --&gt;<br>        @Html.Raw(Model.ChildContent)<br>    &lt;/div&gt;<br>&lt;/div&gt;</code></pre>
 
                         <h4>
                             Component Instantiation
                         </h4>
-                        <pre><code id="basic-example-instantiation-code"></code></pre>
+                        <pre><code id="basic-example-instantiation-code">&lt;ExampleComponent Title="Some title"&gt;<br>    &lt;div&gt;<br>        Some custom HTML content.<br>        &lt;Box&gt;<br>            Supports nested components.<br>        &lt;/Box&gt;<br>    &lt;/div&gt;<br>&lt;/ExampleComponent&gt;</code></pre>
                     </section>
 
                 </section>
@@ -389,11 +391,11 @@
                     <h3 style="margin-top: 0">
                         Advanced Example
                     </h3>
-                
+
                     <p>
-                        An advanced CshtmlComponent that features <strong>attributes</strong>, <strong>child content</strong>, 
-                        <strong>named slots</strong>, <strong>typed slots</strong>, <strong>reference capturing</strong>, 
-                        <strong>head content injection</strong>, <strong>body content injection</strong>, 
+                        An advanced CshtmlComponent that features <strong>attributes</strong>, <strong>child content</strong>,
+                        <strong>named slots</strong>, <strong>typed slots</strong>, <strong>reference capturing</strong>,
+                        <strong>head content injection</strong>, <strong>body content injection</strong>,
                         <strong>one-off content</strong> and <strong>model mutation</strong>.
                     </p>
 
@@ -401,21 +403,21 @@
                         <h4>
                             C# Code (AdvancedExampleComponent.cshtml.cs)
                         </h4>
-                        <pre><code id="advanced-example-code"></code></pre>
-                    
+                        <pre><code id="advanced-example-code">using Acmion.CshtmlComponent;<br>using Microsoft.AspNetCore.Mvc;<br>using Microsoft.AspNetCore.Mvc.Rendering;<br>using Microsoft.AspNetCore.Razor.TagHelpers;<br>using System;<br>using System.Collections.Generic;<br>using System.Linq;<br>using System.Threading.Tasks;<br><br>namespace SampleRazorPagesApplication<br>{<br>    // The associated tag of the component.<br>    [HtmlTargetElement("AdvancedExampleComponent")]<br>    public class AdvancedExampleComponent : CshtmlComponentBase<br>    {<br>        // Explicitly named attribute.<br>        [HtmlAttributeName("Title")]<br>        public string Title { get; set; } = "";<br><br>        // These properties will default to their kebab-cased variants.<br>        public string FontSize { get; set; } = "1rem";<br>        public string BackgroundColor { get; set; } = "rgba(255, 0, 0, 0.1)";<br><br>        // A not HTML bound property, which can not be accessed as a attribute in the component tag.<br>        [HtmlAttributeNotBound]<br>        public string UppercaseTitle { get; set; } = "";<br><br>        public AdvancedExampleComponent(IHtmlHelper htmlHelper) : base(htmlHelper, "/Pages/Components/Example/AdvancedExampleComponent.cshtml", "div", TagMode.StartTagAndEndTag)<br>        {<br>            // The constructor. <br>            // Note: Only dependency injected arguments.<br><br>            // "/Pages/Components/Example/AdvancedExampleComponent.cshtml" is the path to the associated .cshtml file.<br>            // "div" is the output tag name.<br>            // TagMode.StartTagAndEndTag determines the tag structure, optional parameter. Defaults to TagMode.StartTagAndEndTag.<br><br>            // Properties should not be accessed here, because they will not yet be set.<br>        }<br><br>        protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)<br>        {<br>            // This method is called just before the associated .cshtml file is execute.<br>            // Properties have been initialized and can be accessed.<br><br>            // The property ChildContent is a string that contains the child content.<br><br>            // Use this method to edit some other properties or fields.<br><br>            UppercaseTitle = Title.ToUpperInvariant();<br><br>            return base.ProcessComponent(context, output);<br>        }<br>    }<br>}<br></code></pre>
+
                         <h4>
                             Cshtml Code (AdvancedExampleComponent.cshtml)
                         </h4>
-                        <pre><code id="advanced-example-cshtml-code"></code></pre>
-                    
+                        <pre><code id="advanced-example-cshtml-code">@* Reference the associated component as model. *@<br>@using SampleRazorPagesApplication<br>@model AdvancedExampleComponent<br><br>&lt;!-- Content that is injected in to the &lt;head&gt; tag. --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;CshtmlHead&gt;<br>    &lt;!-- This content will be appended to &lt;head&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" /&gt;<br>    &lt;link rel="stylesheet" href="~/css/advanced-example-component.css" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead&gt;<br>    &lt;!-- This content will NOT be appended to &lt;head&gt;, because the default key is already used. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Key="0" ContentOrder="0"&gt;<br>    &lt;!-- This content will be appended to &lt;head&gt; and will appear before &lt;CshtmlHead&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: 0" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: 0");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Key="-1" ContentOrder="-1"&gt;<br>    &lt;!-- This content will be prepended to &lt;head&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: -1, ContentOrder: -1" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: -1, ContentOrder: -1");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Multiple="true" ContentOrder="-2"&gt;<br>    &lt;!-- This content will be prepended to &lt;head&gt; and will appear before &lt;CshtmlHead ContentOrder="-1"&gt;, every time this component is instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Multiple: true, ContentOrder: -2" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Multiple: true, ContentOrder: -2");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br><br><br><br>&lt;!-- Content that is injected in to the &lt;body&gt; tag. --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;CshtmlBody&gt;<br>    &lt;!-- This content will be appended to &lt;body&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody&gt;<br>    &lt;!-- This content will NOT be appended to &lt;body&gt;, because the default key is already used. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Key="0" ContentOrder="0"&gt;<br>    &lt;!-- This content will be appended to &lt;body&gt; and will appear before &lt;CshtmlBody&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: 0" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: 0");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Key="-1" ContentOrder="-1"&gt;<br>    &lt;!-- This content will be prepended to &lt;body&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: -1, ContentOrder: -1" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: -1, ContentOrder: -1");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Multiple="true" ContentOrder="-2"&gt;<br>    &lt;!-- This content will be prepended to &lt;body&gt; and will appear before &lt;CshtmlBody ContentOrder="-1"&gt;, every time this component is instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Multiple: true, ContentOrder: -2" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Multiple: true, ContentOrder: -2");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br><br><br><br>&lt;!-- One off content that is rendered as is and wherever this component is instantiated. --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;CshtmlInitial&gt;<br>    &lt;!-- This content will be rendered, as is, wherever this component is first instantiated. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: default");&lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br>&lt;CshtmlInitial&gt;<br>    &lt;!-- This content will NOT be rendered, because the default key is already used. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: default 2");&lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br>&lt;CshtmlInitial Key="I1"&gt;<br>    &lt;!-- Explicitly keyed. This content will be rendered, as is, wherever this component is first instantiated. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: I1");&lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br><br><br><br>&lt;!-- The actual content of this component. --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;div class="advanced-example-component" style="background-color: @Model.BackgroundColor; font-size: @Model.FontSize"&gt;<br>    @{<br>        // Assign a variable to a component reference.<br>        // The Box component inherits CshtmlComponentReferenceableBase&lt;Box&gt; (a class that inherits CshtmlComponentBase),<br>        // which implements this logic. Useful if component properties have to be used outside the component's own context.<br><br>        // This is not the default behavior due to the mandatory, but slightly weird syntax:<br>        // public Box : CshtmlComponentReferenceableBase&lt;Box&gt; ....<br><br>        // See the source code of Pages/Components/Box.cshtml.cs for how the component class looks like.<br><br>        var boxReference = new CshtmlComponentReference&lt;Box&gt;();<br><br>        &lt;Box Reference="boxReference"&gt;<br>            &lt;h1&gt;<br>                AdvancedExampleComponent: @Model.UppercaseTitle<br>            &lt;/h1&gt;<br>            &lt;p&gt;<br>                The fontsize of the referenced Box is: @boxReference.Component.FontSize <br>            &lt;/p&gt;<br>        &lt;/Box&gt;<br>    }<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-slot0"&gt;<br>        &lt;!-- Render a named slot. --&gt;<br>        @Html.Raw(Model.NamedSlots["SlotName0"])<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-child-content"&gt;<br>        &lt;!-- Render the child content. --&gt;<br>        @Html.Raw(Model.ChildContent)<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-slot1"&gt;<br>        &lt;!-- Render a typed (or named) slot. --&gt;<br>        @Html.Raw(Model.NamedSlots[AdvancedExampleComponentTypedSlot.SlotName])<br>    &lt;/div&gt;<br>&lt;/div&gt;<br></code></pre>
+
                         <h4>
                             Component Instantiation
                         </h4>
-                        <pre><code id="advanced-example-instantiation-code"></code></pre>
+                        <pre><code id="advanced-example-instantiation-code">&lt;AdvancedExampleComponent Title="Some title" font-size="1.2rem" background-color="rgba(0, 0, 255, 0.1)"&gt;<br>    &lt;div&gt;<br>        Some custom HTML content.<br>        &lt;Box&gt;<br>            Supports nested components.<br>        &lt;/Box&gt;<br>    &lt;/div&gt;<br>    &lt;CshtmlSlot Name="SlotName0"&gt;<br>        Some custom HTML content within a named slot. The parent component decides where<br>        this content is placed.<br>    &lt;/CshtmlSlot&gt;<br>    &lt;AdvancedExampleComponentTypedSlot&gt;<br>        Additional custom HTML content within a &lt;strong&gt;typed&lt;/strong&gt; slot.<br>        See the source code of &lt;code&gt;/Pages/Components/Example/AdvancedExampleComponentTypesSlot.cs&lt;/code&gt;.<br>        &lt;Box&gt;<br>            Supports nested components.<br>        &lt;/Box&gt;<br>    &lt;/AdvancedExampleComponentTypedSlot&gt;<br>&lt;/AdvancedExampleComponent&gt;</code></pre>
                     </section>
-                
+
                 </section>
-                
+
 
             </section>
 
@@ -423,7 +425,7 @@
                 <h2 class="scroll-anchor" id="components">
                     Components
                 </h2>
-            
+
                 <p>
                     This section documents the built in components of CshtmlComponent.
                 </p>
@@ -467,7 +469,7 @@
                             <h5>
                                 Multiple
                             </h5>
-                        
+
                             <p>
                                 <strong>Type</strong>: bool
                             </p>
@@ -476,8 +478,8 @@
                             </p>
                             <p>
                                 <strong>Description</strong>: If true, then renders the content of a <code>CshtmlHead</code> tag, even if the key is not unique. Additionally,
-                                if true, then instantiating multiple components of the same type in a request will render the content of a <code>CshtmlHead</code> tag multiple 
-                                times. This feature should almost never be used.                                
+                                if true, then instantiating multiple components of the same type in a request will render the content of a <code>CshtmlHead</code> tag multiple
+                                times. This feature should almost never be used.
                             </p>
                         </section>
 
@@ -485,7 +487,7 @@
                             <h5>
                                 ContentOrder
                             </h5>
-                        
+
                             <p>
                                 <strong>Type</strong>: int
                             </p>
@@ -494,11 +496,11 @@
                             </p>
                             <p>
                                 <strong>Description</strong>: Sets the order of <code>CshtmlHead</code> tags. The content of <code>CshtmlHead</code> tags
-                                with negative values are prepended to the document <code>head</code> element, so that the most negative ones are rendered first. 
+                                with negative values are prepended to the document <code>head</code> element, so that the most negative ones are rendered first.
                                 The content of <code>CshtmlHead</code> tags with positive values (including zero) are appended to the document <code>head</code>
                                 element, so that the least positive ones are rendered first. The default behavior will append everything to the <code>head</code>
-                                element. Useful if certain components require, for example, the JS of other components. One component should in most cases 
-                                use only one ContentOrder. 
+                                element. Useful if certain components require, for example, the JS of other components. One component should in most cases
+                                use only one ContentOrder.
                             </p>
                         </section>
                     </section>
@@ -512,7 +514,7 @@
                             An example that shows how <code>CshtmlHead</code> affects the content of the <code>head</code> element.
                         </p>
 
-                        <pre><code id="cshtml-head-ordering-example-code"></code></pre>
+                        <pre><code id="cshtml-head-ordering-example-code">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;!-- <br>            &lt;CshtmlHead ContentOrder="int.MinValue"&gt; content here.  <br>            &lt;CshtmlHead ContentOrder="int.MinValue + 1"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="int.MinValue + 2"&gt; content here.<br>            ...<br>            &lt;CshtmlHead ContentOrder="-999"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="-998"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="-997"&gt; content here.<br>            ...<br>            &lt;CshtmlHead ContentOrder="-3"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="-2"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="-1"&gt; content here.<br>        --&gt;<br><br>        &lt;!--<br>            Standard &lt;head&gt; content here. Often specified in a _layout.cshtml file.<br>        --&gt;<br><br>        &lt;!--<br>            &lt;CshtmlHead ContentOrder="0"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="1"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="2"&gt; content here.<br>            ...<br>            &lt;CshtmlHead ContentOrder="997"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="998"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="999"&gt; content here.<br>            ...<br>            &lt;CshtmlHead ContentOrder="int.MaxValue - 2"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="int.MaxValue - 1"&gt; content here.<br>            &lt;CshtmlHead ContentOrder="int.MaxValue"&gt; content here. Default location.<br>        --&gt;<br>    &lt;/head&gt;<br>    &lt;body&gt;<br>        &lt;!-- Some content here. --&gt;<br>    &lt;/body&gt;<br>&lt;/html&gt;</code></pre>
                     </section>
                 </section>
 
@@ -524,21 +526,21 @@
                         Note that instantiating multiple components of the same type will not render the content of a <code>CshtmlBody</code> tag
                         multiple times, unless explicitly specified.
                     </p>
-                
+
                     <section class="indent">
                         <h4>
                             Attributes
                         </h4>
-                
+
                         <p>
                             The attributes of <code>CshtmlBody</code>.
                         </p>
-                
+
                         <section class="indent p-no-margin">
                             <h5>
                                 Key
                             </h5>
-                
+
                             <p>
                                 <strong>Type</strong>: string
                             </p>
@@ -550,12 +552,12 @@
                                 Only the first <code>CshtmlBody</code> tag with a unique key is rendered (within the context of a component).
                             </p>
                         </section>
-                
+
                         <section class="indent p-no-margin">
                             <h5>
                                 Multiple
                             </h5>
-                
+
                             <p>
                                 <strong>Type</strong>: bool
                             </p>
@@ -568,12 +570,12 @@
                                 times. This feature should almost never be used.
                             </p>
                         </section>
-                
+
                         <section class="indent p-no-margin">
                             <h5>
                                 ContentOrder
                             </h5>
-                
+
                             <p>
                                 <strong>Type</strong>: int
                             </p>
@@ -590,17 +592,17 @@
                             </p>
                         </section>
                     </section>
-                
+
                     <section class="indent">
                         <h4>
                             CshtmlBody Ordering Example
                         </h4>
-                        
+
                         <p>
                             An example that shows how <code>CshtmlBody</code> affects the content of the <code>head</code> element.
                         </p>
-                        
-                        <pre><code id="cshtml-body-ordering-example-code"></code></pre>
+
+                        <pre><code id="cshtml-body-ordering-example-code">&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>    &lt;head&gt;<br>        &lt;!-- Some content here. --&gt;<br>    &lt;/head&gt;<br>    &lt;body&gt;<br>        &lt;!-- <br>            &lt;CshtmlBody ContentOrder="int.MinValue"&gt; content here.  <br>            &lt;CshtmlBody ContentOrder="int.MinValue + 1"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="int.MinValue + 2"&gt; content here.<br>            ...<br>            &lt;CshtmlBody ContentOrder="-999"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="-998"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="-997"&gt; content here.<br>            ...<br>            &lt;CshtmlBody ContentOrder="-3"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="-2"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="-1"&gt; content here.<br>        --&gt;<br><br>        &lt;!--<br>            Standard &lt;body&gt; content here.<br>        --&gt;<br><br>        &lt;!--<br>            &lt;CshtmlBody ContentOrder="0"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="1"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="2"&gt; content here.<br>            ...<br>            &lt;CshtmlBody ContentOrder="997"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="998"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="999"&gt; content here.<br>            ...<br>            &lt;CshtmlBody ContentOrder="int.MaxValue - 2"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="int.MaxValue - 1"&gt; content here.<br>            &lt;CshtmlBody ContentOrder="int.MaxValue"&gt; content here. Default location.<br>        --&gt;<br>    &lt;/body&gt;<br>&lt;/html&gt;</code></pre>
                     </section>
                 </section>
 
@@ -612,21 +614,21 @@
                         Note that instantiating multiple components of the same type will not render the content of a <code>CshtmlInitial</code> tag
                         multiple times, unless explicitly specified.
                     </p>
-                
+
                     <section class="indent">
                         <h4>
                             Attributes
                         </h4>
-                
+
                         <p>
                             The attributes of <code>CshtmlInitial</code>.
                         </p>
-                
+
                         <section class="indent p-no-margin">
                             <h5>
                                 Key
                             </h5>
-                
+
                             <p>
                                 <strong>Type</strong>: string
                             </p>
@@ -638,12 +640,12 @@
                                 Only the first <code>CshtmlInitial</code> tag with a unique key is rendered (within the context of a component).
                             </p>
                         </section>
-                
+
                         <section class="indent p-no-margin">
                             <h5>
                                 Multiple
                             </h5>
-                
+
                             <p>
                                 <strong>Type</strong>: bool
                             </p>
@@ -663,24 +665,24 @@
                     <h3>CshtmlSlot</h3>
                     <p>
                         <code>CshtmlSlot</code> allows one to specify named slots. The parent component then
-                        decides where this content is rendered. Can be inherited to create typed slots. Typed slots 
-                        do not require the specification of the Name attribute, which improves maintenance. 
+                        decides where this content is rendered. Can be inherited to create typed slots. Typed slots
+                        do not require the specification of the Name attribute, which improves maintenance.
                     </p>
-                
+
                     <section class="indent">
                         <h4>
                             Attributes
                         </h4>
-                
+
                         <p>
                             The attributes of <code>CshtmlSlot</code>.
                         </p>
-                
+
                         <section class="indent p-no-margin">
                             <h5>
                                 Name
                             </h5>
-                
+
                             <p>
                                 <strong>Type</strong>: string
                             </p>
@@ -701,31 +703,32 @@
                 <h2 class="scroll-anchor" id="usage">
                     Usage
                 </h2>
-                
+
                 <p>
                     This section documents how <strong>CshtmlComponent</strong> should be installed and how to author custom components.
                 </p>
 
                 <section class="indent">
                     <h3>
-                        Installation & Initialization
+                        Installation &amp; Initialization
                     </h3>
                     <p>
-                        <ol>
-                            <li>
-                                Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a>.
-                            </li>
-                            <li>
-                                Dependency inject some classes in <code>Startup.cs</code>:
-                                <pre><code id="dependency-injection-code"></code></pre>
-                            </li>
-                            <li>
-                                In an appropriate <code>_ViewImports.cshtml</code> (usually located directly under the <code>Pages</code> 
-                                directory) add the following:
-                                <pre><code id="view-imports-code"></code></pre>
-                            </li>
-                        </ol>
                     </p>
+                    <ol>
+                        <li>
+                            Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a>.
+                        </li>
+                        <li>
+                            Dependency inject some classes in <code>Startup.cs</code>:
+                            <pre><code id="dependency-injection-code">public void ConfigureServices(IServiceCollection services)<br>{<br>    // Some other configuration here.<br><br>    services.AddScoped&lt;ICshtmlComponentTracker, CshtmlComponentTracker&gt;();<br>    services.AddScoped&lt;ITagHelperComponent, CshtmlComponentInjectionContentHandler&gt;();<br>    services.AddScoped&lt;ICshtmlComponentInjectionContentStore, CshtmlComponentInjectionContentStore&gt;();<br><br>    // Some other configuration here.<br>}</code></pre>
+                        </li>
+                        <li>
+                            In an appropriate <code>_ViewImports.cshtml</code> (usually located directly under the <code>Pages</code>
+                            directory) add the following:
+                            <pre><code id="view-imports-code">// Built in CshtmlComponent components.<br>@addTagHelper *, Acmion.CshtmlComponent<br><br>// Components defined in your project.<br>@addTagHelper *, YourProjectName<br></code></pre>
+                        </li>
+                    </ol>
+                    <p></p>
                 </section>
 
                 <section class="indent">
@@ -733,90 +736,91 @@
                         Authoring Custom CshtmlComponents
                     </h3>
                     <p>
-                        <ol>
-                            <li>
-                                Create the file <code>ExampleComponent.cshtml.cs</code> somewhere under your ASP.NET Core Project (usually 
-                                under the <code>Pages</code> or <code>View</code> directory, but anything should work).
-                            </li>
-                            <li>
-                                Create the file <code>ExampleComponent.cshtml</code> in the same location.
-                            </li>
-                            <li>
-                                In <code>ExampleComponent.cs</code>:
-                                <ol>
-                                    <li>
-                                        Inherit <code>CshtmlComponentBase</code>. If you want to capture the reference to this component, then you
-                                        should instead inherit <code>CshtmlComponentReferenceableBase&lt;ExampleComponent&gt;</code>. No other changes
-                                        necessary.
-                                    </li>
-                                    <li>
-                                        Implement the constructor so that all arguments are dependency injected arguments. In most cases,
-                                        it is enough that <code>IHtmlHelper htmlHelper</code> is the only argument. However, in the <code>base</code>
-                                        call, you must give the path to <code>ExampleComponent.cshtml</code> and what output tag name the component
-                                        uses. See more about output tag names in the
-                                        <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring">TagHelper docs</a>.
-                                        <code>TagMode</code> might have to be defined, especially if using selfclosing tags, but this is optional.
-                                    </li>
-                                    <li>
-                                        Add <code>[HtmlTargetElement("ExampleComponentTag")]</code> to the component class, where
-                                        <code>ExampleComponentTag</code> is the tag that the component will be associated with.
-                                    </li>
-                                    <li>
-                                        Optionally, specify how the tag should be closed in <code>HtmlTargetElement</code>, see more about how this
-                                        is achieved in the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring">TagHelper docs</a>.
-                                    </li>
-                                    <li>
-                                        List all component attributes as C# properties. ASP.NET Core will translate the properties to their kebabcased
-                                        variants, unless otherwise specified with <code>[HtmlAttributeName("AttributeName")]</code>, where
-                                        <code>AttributeName</code> is the name of the attribute.
-                                    </li>
-                                    <li>
-                                        Create fields or properties for all other values you wish to use in <code>ExampleComponent.cshtml</code>.
-                                    </li>
-                                    <li>
-                                        Optionally, override <code>protected virtual Task ProcessComponent()</code>, which is called before
-                                        <code>ExampleComponent.cshtml</code> is executed. Here you can extract information from properties and
-                                        access other fields etc. This can not be done in the constructor, since any provided properties
-                                        will not have been set yet. The nested child content can be accessed in this method by accessing
-                                        <code>ChildContent</code>. The named slots can be accessed by accessing <code>NamedSlots</code>
-                                    </li>
-                                </ol>
-                            </li>
-                            <li>
-                                In <code>ExampleComponent.cshtml</code>:
-                                <ol>
-                                    <li>
-                                        Set the model to <code>ExampleComponent</code> with <code>@model ExampleComponent</code>. You may need to
-                                        add appropriate using statements.
-                                    </li>
-                                    <li>
-                                        Component properties and field are accessible with <code>Model.PropertyName</code>.
-                                    </li>
-                                    <li>
-                                        The nested child content can be accessed with <code>Model.ChildContent</code>. To render the child content,
-                                        you can use <code>Html.Raw(Model.ChildContent)</code>, but note that this does not encode the HTML, which means
-                                        that XSS attacks are possible if non-validated user input is used as child content.
-                                    </li>
-                                    <li>
-                                        Any named slots can be accessed with <code>Model.NamedSlots</code>. To render the slot content,
-                                        you can use <code>Html.Raw(Model.NamedSlots["SlotName"])</code>, but note that this does not encode the HTML, which means
-                                        that XSS attacks are possible if non-validated user input is used as child content. The named slots have to be defined, in
-                                        the initializing context, with <code>&lt;CshtmlSlot Name="SlotName"&gt;[CONTENT HERE]&lt;CshtmlSlot&gt;</code> or by using
-                                        typed slots. See the advanced example in <a href="#examples">Examples</a>.
-                                    </li>
-                                    <li>
-                                        Use <code>&lt;CshtmlHead&gt;[CONTENT HERE]&lt;CshtmlHead&gt;</code>,
-                                        <code>&lt;CshtmlBody&gt;[CONTENT HERE]&lt;CshtmlBody&gt;</code> and
-                                        <code>&lt;CshtmlInitial&gt;[CONTENT HERE]&lt;CshtmlInitial&gt;</code> 
-                                        to render or inject content according to the rules in <a href="#components">Components</a>. 
-                                    </li>
-                                    <li>
-                                        Render your markup and use <code>.cshtml</code> files as you wish.
-                                    </li>
-                                </ol>
-                            </li>
-                        </ol>
                     </p>
+                    <ol>
+                        <li>
+                            Create the file <code>ExampleComponent.cshtml.cs</code> somewhere under your ASP.NET Core Project (usually
+                            under the <code>Pages</code> or <code>View</code> directory, but anything should work).
+                        </li>
+                        <li>
+                            Create the file <code>ExampleComponent.cshtml</code> in the same location.
+                        </li>
+                        <li>
+                            In <code>ExampleComponent.cs</code>:
+                            <ol>
+                                <li>
+                                    Inherit <code>CshtmlComponentBase</code>. If you want to capture the reference to this component, then you
+                                    should instead inherit <code>CshtmlComponentReferenceableBase&lt;ExampleComponent&gt;</code>. No other changes
+                                    necessary.
+                                </li>
+                                <li>
+                                    Implement the constructor so that all arguments are dependency injected arguments. In most cases,
+                                    it is enough that <code>IHtmlHelper htmlHelper</code> is the only argument. However, in the <code>base</code>
+                                    call, you must give the path to <code>ExampleComponent.cshtml</code> and what output tag name the component
+                                    uses. See more about output tag names in the
+                                    <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring">TagHelper docs</a>.
+                                    <code>TagMode</code> might have to be defined, especially if using selfclosing tags, but this is optional.
+                                </li>
+                                <li>
+                                    Add <code>[HtmlTargetElement("ExampleComponentTag")]</code> to the component class, where
+                                    <code>ExampleComponentTag</code> is the tag that the component will be associated with.
+                                </li>
+                                <li>
+                                    Optionally, specify how the tag should be closed in <code>HtmlTargetElement</code>, see more about how this
+                                    is achieved in the <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/tag-helpers/authoring">TagHelper docs</a>.
+                                </li>
+                                <li>
+                                    List all component attributes as C# properties. ASP.NET Core will translate the properties to their kebabcased
+                                    variants, unless otherwise specified with <code>[HtmlAttributeName("AttributeName")]</code>, where
+                                    <code>AttributeName</code> is the name of the attribute.
+                                </li>
+                                <li>
+                                    Create fields or properties for all other values you wish to use in <code>ExampleComponent.cshtml</code>.
+                                </li>
+                                <li>
+                                    Optionally, override <code>protected virtual Task ProcessComponent()</code>, which is called before
+                                    <code>ExampleComponent.cshtml</code> is executed. Here you can extract information from properties and
+                                    access other fields etc. This can not be done in the constructor, since any provided properties
+                                    will not have been set yet. The nested child content can be accessed in this method by accessing
+                                    <code>ChildContent</code>. The named slots can be accessed by accessing <code>NamedSlots</code>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            In <code>ExampleComponent.cshtml</code>:
+                            <ol>
+                                <li>
+                                    Set the model to <code>ExampleComponent</code> with <code>@model ExampleComponent</code>. You may need to
+                                    add appropriate using statements.
+                                </li>
+                                <li>
+                                    Component properties and field are accessible with <code>Model.PropertyName</code>.
+                                </li>
+                                <li>
+                                    The nested child content can be accessed with <code>Model.ChildContent</code>. To render the child content,
+                                    you can use <code>Html.Raw(Model.ChildContent)</code>, but note that this does not encode the HTML, which means
+                                    that XSS attacks are possible if non-validated user input is used as child content.
+                                </li>
+                                <li>
+                                    Any named slots can be accessed with <code>Model.NamedSlots</code>. To render the slot content,
+                                    you can use <code>Html.Raw(Model.NamedSlots["SlotName"])</code>, but note that this does not encode the HTML, which means
+                                    that XSS attacks are possible if non-validated user input is used as child content. The named slots have to be defined, in
+                                    the initializing context, with <code>&lt;CshtmlSlot Name="SlotName"&gt;[CONTENT HERE]&lt;CshtmlSlot&gt;</code> or by using
+                                    typed slots. See the advanced example in <a href="#examples">Examples</a>.
+                                </li>
+                                <li>
+                                    Use <code>&lt;CshtmlHead&gt;[CONTENT HERE]&lt;CshtmlHead&gt;</code>,
+                                    <code>&lt;CshtmlBody&gt;[CONTENT HERE]&lt;CshtmlBody&gt;</code> and
+                                    <code>&lt;CshtmlInitial&gt;[CONTENT HERE]&lt;CshtmlInitial&gt;</code>
+                                    to render or inject content according to the rules in <a href="#components">Components</a>.
+                                </li>
+                                <li>
+                                    Render your markup and use <code>.cshtml</code> files as you wish.
+                                </li>
+                            </ol>
+                        </li>
+                    </ol>
+                    <p></p>
                 </section>
 
                 <section class="indent">
@@ -824,21 +828,22 @@
                         Notes
                     </h3>
                     <p>
-                        <ul>
-                            <li>
-                                See the sample project in the <a href="https://github.com/Acmion/CshtmlComponent.git">CshtmlComponent GitHub repository</a> for concrete
-                                examples.
-                            </li>
-                            <li>
-                                A CshtmlComponent is just a TagHelper with some "magic". In practice, everything that applies to
-                                ASP.NET Core TagHelpers apply to CshtmlComponents.
-                            </li>
-                            <li>
-                                The entire CshtmlComponent is passed as Model to the <code>.cshtml</code> file. This includes properties
-                                inherited from TagHelper.
-                            </li>
-                        </ul>
                     </p>
+                    <ul>
+                        <li>
+                            See the sample project in the <a href="https://github.com/Acmion/CshtmlComponent.git">CshtmlComponent GitHub repository</a> for concrete
+                            examples.
+                        </li>
+                        <li>
+                            A CshtmlComponent is just a TagHelper with some "magic". In practice, everything that applies to
+                            ASP.NET Core TagHelpers apply to CshtmlComponents.
+                        </li>
+                        <li>
+                            The entire CshtmlComponent is passed as Model to the <code>.cshtml</code> file. This includes properties
+                            inherited from TagHelper.
+                        </li>
+                    </ul>
+                    <p></p>
                 </section>
             </section>
 
@@ -859,7 +864,7 @@
                     </p>
                     <p>
                         Breaking changes. Added support for head and body content injection with <code>CshtmlHead</code> and <code>CshtmlBody</code>.
-                        Rewrote <code>CshtmlInitial</code> to no longer depend on the obsolete <code>Context</code> attribute. Upgrading from a 
+                        Rewrote <code>CshtmlInitial</code> to no longer depend on the obsolete <code>Context</code> attribute. Upgrading from a
                         previous version should only minimally affect previous usage of <code>CshtmlInitial</code> (might even in most cases work
                         without any changes). Additionally, slight changes in dependency injection (Startup.cs).
                     </p>
@@ -877,7 +882,7 @@
                     </p>
                     <p>
                         Added support component reference capturing. This grants access to component properties outside
-                        the components own context. See the Razor code in <a href="#example">Example</a> for an example 
+                        the components own context. See the Razor code in <a href="#example">Example</a> for an example
                         of how this is done. Note: This feature must be enabled at a component level.
                     </p>
                 </section>
@@ -909,7 +914,7 @@
                         Published: Sep 19, 2020
                     </p>
                     <p>
-                        Breaking changes. Added support for named slots and added tag helper context and output as arguments 
+                        Breaking changes. Added support for named slots and added tag helper context and output as arguments
                         to <code>ProcessComponent</code>.
                     </p>
                 </section>
@@ -943,8 +948,8 @@
                         The initial release.
                     </p>
                 </section>
-            
-            
+
+
             </section>
 
             <section>
@@ -959,70 +964,15 @@
                 <p>
                     Contribute to CshtmlComponent in it's <a href="https://github.com/Acmion/CshtmlComponent">GitHub repository</a>.
                 </p>
-            
+
             </section>
         </main>
 
         <div style="height: 200px"></div>
         <div>
-            <script>
-                async function loadExamples()
-                {
-                    var cshtmlComponentCodeFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/ExampleComponent.cshtml.cs");
-                    var cshtmlComponentCshtmlFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/ExampleComponent.cshtml");
-                    var cshtmlComponentInstantiationFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/ExampleComponentInstantiation.cshtml");
-
-                    var cshtmlComponentAdvancedCodeFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/AdvancedExampleComponent.cshtml.cs");
-                    var cshtmlComponentAdvancedCshtmlFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/AdvancedExampleComponent.cshtml");
-                    var cshtmlComponentAdvancedInstantiationFetch = fetch("SampleRazorPagesApplication/Pages/Components/Example/AdvancedExampleComponentInstantiation.cshtml");
-
-                    var cshtmlComponentCode = await (await cshtmlComponentCodeFetch).text();
-                    var cshtmlComponentCshtml = await (await cshtmlComponentCshtmlFetch).text();
-                    var cshtmlComponentInstantiation = await (await cshtmlComponentInstantiationFetch).text();
-
-                    var cshtmlComponentAdvancedCode = await (await cshtmlComponentAdvancedCodeFetch).text();
-                    var cshtmlComponentAdvancedCshtml = await (await cshtmlComponentAdvancedCshtmlFetch).text();
-                    var cshtmlComponentAdvancedInstantiation = await (await cshtmlComponentAdvancedInstantiationFetch).text();
-
-                    document.getElementById("basic-example-code").innerText = cshtmlComponentCode;
-                    document.getElementById("basic-example-cshtml-code").innerText = cshtmlComponentCshtml;
-                    document.getElementById("basic-example-instantiation-code").innerText = cshtmlComponentInstantiation;
-
-                    document.getElementById("advanced-example-code").innerText = cshtmlComponentAdvancedCode;
-                    document.getElementById("advanced-example-cshtml-code").innerText = cshtmlComponentAdvancedCshtml;
-                    document.getElementById("advanced-example-instantiation-code").innerText = cshtmlComponentAdvancedInstantiation;
-                }
-
-                async function loadComponents()
-                {
-                    var cshtmlHeadCodeFetch = fetch("/Web/examples/cshtml-head-ordering-example-code.html");
-                    var cshtmlBodyCodeFetch = fetch("/Web/examples/cshtml-body-ordering-example-code.html");
-
-                    var cshtmlHeadCode = await (await cshtmlHeadCodeFetch).text();
-                    var cshtmlBodyCode = await (await cshtmlBodyCodeFetch).text();
-
-                    document.getElementById("cshtml-head-ordering-example-code").innerText = cshtmlHeadCode;
-                    document.getElementById("cshtml-body-ordering-example-code").innerText = cshtmlBodyCode;
-
-                }
-
-                async function loadUsage()
-                {
-                    var dependencyInjcetionCodeFetch = fetch("/Web/examples/dependency-injection-code.txt");
-                    var viewImportsCodeFetch = fetch("/Web/examples/view-imports-code.txt");
-
-                    var dependencyInjcetionCode = await (await dependencyInjcetionCodeFetch).text();
-                    var viewImportsCode = await (await viewImportsCodeFetch).text();
-
-                    document.getElementById("dependency-injection-code").innerText = dependencyInjcetionCode;
-                    document.getElementById("view-imports-code").innerText = viewImportsCode;
-
-                }
-
-                loadExamples();
-                loadComponents();
-                loadUsage();
-            </script>
+            
         </div>
+
     </body>
+
 </html>

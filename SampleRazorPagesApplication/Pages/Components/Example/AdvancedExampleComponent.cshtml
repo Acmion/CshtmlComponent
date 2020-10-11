@@ -1,0 +1,149 @@
+﻿@* Reference the associated component as model. *@
+@using SampleRazorPagesApplication
+@model AdvancedExampleComponent
+
+<!-- Content that is injected in to the <head> tag. -->
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
+<CshtmlHead>
+    <!-- This content will be appended to <head>, when this component is first instantiated. -->
+    <meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" />
+    <link rel="stylesheet" href="~/css/advanced-example-component.css" />
+    <script>console.log("CshtmlHead, Key: default, ContentOrder: default");</script>
+</CshtmlHead>
+
+<CshtmlHead>
+    <!-- This content will NOT be appended to <head>, because the default key is already used. -->
+    <meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" />
+    <script>console.log("CshtmlHead, Key: default, ContentOrder: default");</script>
+</CshtmlHead>
+
+<CshtmlHead Key="0" ContentOrder="0">
+    <!-- This content will be appended to <head> and will appear before <CshtmlHead>, when this component is first instantiated. -->
+    <meta name="description" content="CshtmlHead, Key: default, ContentOrder: 0" />
+    <script>console.log("CshtmlHead, Key: default, ContentOrder: 0");</script>
+</CshtmlHead>
+
+<CshtmlHead Key="-1" ContentOrder="-1">
+    <!-- This content will be prepended to <head>, when this component is first instantiated. -->
+    <meta name="description" content="CshtmlHead, Key: -1, ContentOrder: -1" />
+    <script>console.log("CshtmlHead, Key: -1, ContentOrder: -1");</script>
+</CshtmlHead>
+
+<CshtmlHead Multiple="true" ContentOrder="-2">
+    <!-- This content will be prepended to <head> and will appear before <CshtmlHead ContentOrder="-1">, every time this component is instantiated. -->
+    <meta name="description" content="CshtmlHead, Multiple: true, ContentOrder: -2" />
+    <script>console.log("CshtmlHead, Multiple: true, ContentOrder: -2");</script>
+</CshtmlHead>
+
+
+
+
+<!-- Content that is injected in to the <body> tag. -->
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
+<CshtmlBody>
+    <!-- This content will be appended to <body>, when this component is first instantiated. -->
+    <meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" />
+    <script>console.log("CshtmlBody, Key: default, ContentOrder: default");</script>
+</CshtmlBody>
+
+<CshtmlBody>
+    <!-- This content will NOT be appended to <body>, because the default key is already used. -->
+    <meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" />
+    <script>console.log("CshtmlBody, Key: default, ContentOrder: default");</script>
+</CshtmlBody>
+
+<CshtmlBody Key="0" ContentOrder="0">
+    <!-- This content will be appended to <body> and will appear before <CshtmlBody>, when this component is first instantiated. -->
+    <meta name="description" content="CshtmlBody, Key: default, ContentOrder: 0" />
+    <script>console.log("CshtmlBody, Key: default, ContentOrder: 0");</script>
+</CshtmlBody>
+
+<CshtmlBody Key="-1" ContentOrder="-1">
+    <!-- This content will be prepended to <body>, when this component is first instantiated. -->
+    <meta name="description" content="CshtmlBody, Key: -1, ContentOrder: -1" />
+    <script>console.log("CshtmlBody, Key: -1, ContentOrder: -1");</script>
+</CshtmlBody>
+
+<CshtmlBody Multiple="true" ContentOrder="-2">
+    <!-- This content will be prepended to <body> and will appear before <CshtmlBody ContentOrder="-1">, every time this component is instantiated. -->
+    <meta name="description" content="CshtmlBody, Multiple: true, ContentOrder: -2" />
+    <script>console.log("CshtmlBody, Multiple: true, ContentOrder: -2");</script>
+</CshtmlBody>
+
+
+
+
+<!-- One off content that is rendered as is and wherever this component is instantiated. -->
+<!-- ----------------------------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------------------------- -->
+<!-- ----------------------------------------------------------------------------------- -->
+<CshtmlInitial>
+    <!-- This content will be rendered, as is, wherever this component is first instantiated. -->
+    <script>console.log("CshtmlInitial, Key: default");</script>
+</CshtmlInitial>
+
+<CshtmlInitial>
+    <!-- This content will NOT be rendered, because the default key is already used. -->
+    <script>console.log("CshtmlInitial, Key: default 2");</script>
+</CshtmlInitial>
+
+<CshtmlInitial Key="I1">
+    <!-- Explicitly keyed. This content will be rendered, as is, wherever this component is first instantiated. -->
+    <script>console.log("CshtmlInitial, Key: I1");</script>
+</CshtmlInitial>
+
+
+
+
+<!-- The actual content of this component. -->
+<!-- ------------------------------------- -->
+<!-- ------------------------------------- -->
+<!-- ------------------------------------- -->
+<div class="advanced-example-component" style="background-color: @Model.BackgroundColor; font-size: @Model.FontSize">
+    @{
+        // Assign a variable to a component reference.
+        // The Box component inherits CshtmlComponentReferenceableBase<Box> (a class that inherits CshtmlComponentBase),
+        // which implements this logic. Useful if component properties have to be used outside the component's own context.
+
+        // This is not the default behavior due to the mandatory, but slightly weird syntax:
+        // public Box : CshtmlComponentReferenceableBase<Box> ....
+
+        // See the source code of Pages/Components/Box.cshtml.cs for how the component class looks like.
+
+        var boxReference = new CshtmlComponentReference<Box>();
+
+        <Box Reference="boxReference">
+            <h1>
+                AdvancedExampleComponent: @Model.UppercaseTitle
+            </h1>
+            <p>
+                The fontsize of the referenced Box is: @boxReference.Component.FontSize 
+            </p>
+        </Box>
+    }
+
+    <br />
+
+    <div class="advanced-example-component-slot0">
+        <!-- Render a named slot. -->
+        @Html.Raw(Model.NamedSlots["SlotName0"])
+    </div>
+
+    <br />
+
+    <div class="advanced-example-component-child-content">
+        <!-- Render the child content. -->
+        @Html.Raw(Model.ChildContent)
+    </div>
+
+    <br />
+
+    <div class="advanced-example-component-slot1">
+        <!-- Render a typed (or named) slot. -->
+        @Html.Raw(Model.NamedSlots[AdvancedExampleComponentTypedSlot.SlotName])
+    </div>
+</div>

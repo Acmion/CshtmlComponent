@@ -79,14 +79,13 @@ namespace Acmion.CshtmlComponent
             ((IViewContextAware)_htmlHelper).Contextualize(ViewContext);
         }
 
-        
-        private Stack<CshtmlComponentBase> GetParentComponentList(TagHelperContext context) 
+        private Stack<CshtmlComponentBase> GetParentComponentStack(TagHelperContext context) 
         {
             return (context.Items[CshtmlComponentContextComponentStackKey] as Stack<CshtmlComponentBase>)!;
         }
-        private void SetParentComponentList(TagHelperContext context, Stack<CshtmlComponentBase> parentComponentList)
+        private void SetParentComponentStack(TagHelperContext context, Stack<CshtmlComponentBase> parentComponentStack)
         {
-            context.Items[CshtmlComponentContextComponentStackKey] = parentComponentList;
+            context.Items[CshtmlComponentContextComponentStackKey] = parentComponentStack;
         }
 
         protected virtual Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
@@ -102,20 +101,20 @@ namespace Acmion.CshtmlComponent
 
             if (!context.Items.ContainsKey(CshtmlComponentContextComponentStackKey))
             {
-                var parentComponentList = new Stack<CshtmlComponentBase>();
+                var parentComponentStack = new Stack<CshtmlComponentBase>();
 
                 ParentComponent = null;
-                parentComponentList.Push(this);
+                parentComponentStack.Push(this);
 
-                SetParentComponentList(context, parentComponentList);
+                SetParentComponentStack(context, parentComponentStack);
             }
             else 
             {
-                var parentComponentList = GetParentComponentList(context);
+                var parentComponentStack = GetParentComponentStack(context);
 
-                ParentComponent = parentComponentList.Peek();
+                ParentComponent = parentComponentStack.Peek();
 
-                parentComponentList.Push(this);
+                parentComponentStack.Push(this);
             }
 
             base.Init(context);
@@ -137,8 +136,8 @@ namespace Acmion.CshtmlComponent
 
             await ProcessComponent(context, output);
 
-            var parentComponentList = GetParentComponentList(context);
-            parentComponentList.Pop();
+            var parentComponentStack = GetParentComponentStack(context);
+            parentComponentStack.Pop();
 
             output.TagName = OutputTagName;
             output.TagMode = OutputTagMode;
