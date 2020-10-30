@@ -1,5 +1,5 @@
 ﻿@* Reference the associated component as model. *@
-@using SampleRazorPagesApplication
+@using SampleRazorPagesApplication.Pages.Components.Example
 @model AdvancedExampleComponent
 
 <!-- Content that is injected in to the <head> tag. -->
@@ -94,6 +94,9 @@
 <CshtmlInitial Key="I1">
     <!-- Explicitly keyed. This content will be rendered, as is, wherever this component is first instantiated. -->
     <script>console.log("CshtmlInitial, Key: I1");</script>
+    @{ 
+        var a = 0;
+    }
 </CshtmlInitial>
 
 

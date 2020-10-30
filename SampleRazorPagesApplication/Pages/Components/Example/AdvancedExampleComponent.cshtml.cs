@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SampleRazorPagesApplication
+namespace SampleRazorPagesApplication.Pages.Components.Example
 {
     // The associated tag of the component.
     [HtmlTargetElement("AdvancedExampleComponent")]
@@ -31,7 +31,7 @@ namespace SampleRazorPagesApplication
             // Note: Only dependency injected arguments.
 
             // "/Pages/Components/Example/AdvancedExampleComponent.cshtml" is the path to the associated .cshtml file.
-            // "div" is the output tag name.
+            // "div" is the output tag name. Defaults to null.
             // TagMode.StartTagAndEndTag determines the tag structure, optional parameter. Defaults to TagMode.StartTagAndEndTag.
 
             // Properties should not be accessed here, because they will not yet be set.
@@ -39,7 +39,7 @@ namespace SampleRazorPagesApplication
 
         protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
         {
-            // This method is called just before the associated .cshtml file is execute.
+            // This method is called just before the associated .cshtml file is executed.
             // Properties have been initialized and can be accessed.
 
             // The property ChildContent is a string that contains the child content.
