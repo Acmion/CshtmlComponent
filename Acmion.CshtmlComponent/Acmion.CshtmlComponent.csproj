@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -11,7 +11,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://cshtml-component.acmion.com</PackageProjectUrl>
     <PackageTags>C#, ASP.NET, Core, Component, Components, Razor, Cshtml, Nested, TagHelper</PackageTags>
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
