@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>
-            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V3.1.0
+            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V4.0.0
         </title>
 
         <meta name="description" content="CshtmlComponent, a component for ASP.NET Core MVC and Razor Pages. No Blazor.">
@@ -28,9 +28,21 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.acmion.com/acmion/hyper-nav/dist/hyper-nav-default.min.css" />
+        <link rel="stylesheet" href="https://negatronic-acmion.acmion.com/+/css/negatronic.css" />
 
         <!-- Custom -->
         <link rel="stylesheet" href="/Web/css/main.css" />
+
+        <!-- Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/+/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/+/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/+/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/+/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/+/favicon/safari-pinned-tab.svg" color="#ff0000">
+        <link rel="shortcut icon" href="/+/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-config" content="/+/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
     </head>
     <body>
         <header>
@@ -41,10 +53,13 @@
                     <div class="hn-section hn-section-brand">
                         <div class="hn-item">
                             <a id="hn-logo" class="hn-link" href="/">
+                                <span class="hn-icon hn-size-auto">
+                                    <img src="/+/assets/icon.svg" class="acmion-icon">
+                                </span>
                                 <span class="hn-content">
-                                    <strong style="font-weight: 600;">
+                                    <span class="acmion-logo">
                                         CshtmlComponent
-                                    </strong>
+                                    </span>
                                 </span>
                             </a>
                         </div>
@@ -130,7 +145,7 @@
         <main class="container">
             <section>
                 <h1 class="scroll-anchor" id="home">
-                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V3.1.0
+                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V4.0.0
                 </h1>
             
                 <p>
@@ -144,7 +159,7 @@
                     <br />
                     <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a>.</strong>
                     <br />
-                    <strong>See more detailed <a href="#usage">Usage & Installation instructions</a></strong>.
+                    <strong>See more detailed <a href="#usage">Usage instructions</a></strong>.
                 </p>
             
                 <div class="p-2"></div>
@@ -187,6 +202,12 @@
                                     <li>
                                         Body Content Injection <sup>[3]</sup>
                                     </li>
+                                    <li>
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li>
+                                        Render to String
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -227,6 +248,12 @@
                                     </li>
                                     <li class="feature-not-enabled">
                                         Body Content Injection <sup>[3]</sup>
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Render to String
                                     </li>
                                 </ul>
                             </div>
@@ -269,6 +296,12 @@
                                     <li class="feature-not-enabled">
                                         Body Content Injection <sup>[3]</sup>
                                     </li>
+                                    <li class="feature-not-enabled">
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Render to String
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -309,6 +342,12 @@
                                     </li>
                                     <li class="feature-not-enabled">
                                         Body Content Injection <sup>[3]</sup>
+                                    </li>
+                                    <li>
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li>
+                                        Render to String
                                     </li>
                                 </ul>
                             </div>
@@ -627,6 +666,74 @@
                             </p>
                         </section>
 
+                    </section>
+
+                    <section class="indent">
+                        <h4>
+                            Methods
+                        </h4>
+                    
+                        <p>
+                            The methods of <code>CshtmlComponentBase</code> and what they do and return (not including inherited).
+                        </p>
+                    
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public IHtmlContent Render()
+                            </h5>
+                    
+                            <p>
+                                Renders and returns the content of the component.
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public Task&lt;IHtmlContent&gt; RenderAsync()
+                            </h5>
+                        
+                            <p>
+                                Renders and returns the content of the component asynchronously.
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public string RenderToString(bool preserveLineBreaks = true)
+                            </h5>
+                        
+                            <p>
+                                Renders and returns the content of the component.
+                                If <code>preserveLineBreaks = true</code>, then line breaks are preserved, otherwise they are not. 
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public async Task&lt;string&gt; RenderToStringAsync(bool preserveLineBreaks = true)
+                            </h5>
+                        
+                            <p>
+                                Renders and returns the content of the component asynchronously.
+                                If <code>preserveLineBreaks = true</code>, then line breaks are preserved, otherwise they are not.
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                protected virtual Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
+                            </h5>
+                        
+                            <p>
+                                A method that is executed just before a component is rendered.
+                                By default the method does nothing, but by overriding it you may control properties and other
+                                things. Properties may generally not be controlled in the constructor, due to the fact
+                                that they may not be initialized. When this method is called, all properties that have explicitly 
+                                been defined will have been set. Note that CshtmlComponent does not differentiate between required 
+                                and non-required properties. Ff this is important for you, then you should implement checking logic 
+                                here.
+                            </p>
+                        </section>
                     </section>
                 </section>
 
@@ -1095,6 +1202,23 @@
                 <h2 class="scroll-anchor" id="change-log">
                     Changelog
                 </h2>
+
+                <section>
+                    <h4>
+                        V4.0.0
+                    </h4>
+                    <a href="/v4.0.0/">
+                        V4.0.0 Documentation
+                    </a>
+                    <p>
+                        Published: Dec 19, 2020
+                    </p>
+                    <p>
+                        Updated to .NET 5.0. Additionally, added the methods <code>Render</code>, <code>RenderAsync</code>, <code>RenderToString</code> 
+                        and <code>RenderToStringAsync</code> with which a component can manually be rendered. Manual rendering may be useful in, for 
+                        example, communicating with JavaScript.
+                    </p>
+                </section>
 
                 <section>
                     <h4>

@@ -1,0 +1,5 @@
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "max-age=86400"

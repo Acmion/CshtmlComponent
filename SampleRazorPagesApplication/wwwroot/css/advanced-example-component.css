@@ -1,7 +1,8 @@
 ﻿.advanced-example-component,
 .advanced-example-component-slot0,
 .advanced-example-component-slot1,
-.advanced-example-component-child-content
+.advanced-example-component-child-content,
+.advanced-example-component-manual-render
 {
     padding: 1rem;
     border: solid 3px rgba(0, 0, 0, 0.1);

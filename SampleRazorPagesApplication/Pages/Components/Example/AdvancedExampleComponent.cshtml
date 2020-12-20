@@ -149,4 +149,24 @@
         <!-- Render a typed (or named) slot. -->
         @Html.Raw(Model.NamedSlots[AdvancedExampleComponentTypedSlot.SlotName])
     </div>
+
+    <br />
+
+    <div class="advanced-example-component-manual-render">
+        <!-- Manually render a component. Note the constructor argument and that some properties have to be manually set. -->
+        @{
+            var manualBox = new Box(Html) { ChildContent = "Manually rendered box" };
+        }
+
+        @await manualBox.RenderAsync()
+
+        <br />
+
+        <!-- The content can also be rendered into a string. May be useful if templates must be passed to, for example, JavaScript. -->
+        @{ 
+            var manualBoxRenderedToString = await manualBox.RenderToStringAsync(preserveLineBreaks: false);
+        }
+
+        @Html.Raw(manualBoxRenderedToString)
+    </div>
 </div>

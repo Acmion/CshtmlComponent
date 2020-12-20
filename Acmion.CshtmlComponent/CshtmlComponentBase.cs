@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace Acmion.CshtmlComponent
@@ -128,6 +130,58 @@ namespace Acmion.CshtmlComponent
             _viewContext = null!; 
         }
 
+        public IHtmlContent Render()
+        {
+            return _htmlHelper.Partial(PartialViewName, this);
+        }
+        public Task<IHtmlContent> RenderAsync()
+        {
+            return _htmlHelper.PartialAsync(PartialViewName, this);
+        }
+        public string RenderToString(bool preserveLineBreaks = true)
+        {
+            var html = _htmlHelper.Partial(PartialViewName, this);
+
+            using (var writer = new StringWriter())
+            {
+                html.WriteTo(writer, HtmlEncoder.Default);
+
+                if (preserveLineBreaks)
+                {
+                    return writer.ToString();
+                }
+                else
+                {
+                    return writer.ToString().Replace("\n", "").Replace("\r", "");
+                }
+            }
+        }
+        public async Task<string> RenderToStringAsync(bool preserveLineBreaks = true)
+        {
+            var html = await _htmlHelper.PartialAsync(PartialViewName, this);
+
+            using (var writer = new StringWriter())
+            {
+                html.WriteTo(writer, HtmlEncoder.Default);
+
+                if (preserveLineBreaks)
+                {
+                    return writer.ToString();
+                }
+                else
+                {
+                    return writer.ToString().Replace("\n", "").Replace("\r", "");
+                }
+            }
+        }
+
+        protected virtual Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
+        {
+            // Classes that inherit CshtmlComponentBase can override this method to edit properties etc.
+
+            return Task.CompletedTask;
+        }
+
         private void SetViewContext(ViewContext vc)
         {
             // Sets the ViewContext.
@@ -169,13 +223,6 @@ namespace Acmion.CshtmlComponent
             context.Items[CshtmlComponentContextComponentStackKey] = parentComponentStack;
         }
 
-        protected virtual Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
-        {
-            // Classes that inherit CshtmlComponentBase can override this method to edit properties etc.
-
-            return Task.CompletedTask;
-        }
-
         public override sealed void Init(TagHelperContext context)
         {
             // Initialize 
@@ -200,14 +247,12 @@ namespace Acmion.CshtmlComponent
 
             base.Init(context);
         }
-
         public override sealed void Process(TagHelperContext context, TagHelperOutput output)
         {
             // Method unoverridable in classes that inherit CshtmlComponentBase.
 
             base.Process(context, output);
         }
-
         public override sealed async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             // Process the component.

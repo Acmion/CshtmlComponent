@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,8 +27,7 @@ namespace Acmion.CshtmlComponent
                 currentCshtmlPostContentStoreItems = _cshtmlComponentPostContentStore.BodyInjectionContentItems;
             }
 
-            currentCshtmlPostContentStoreItems.Sort();
-            foreach (var postHeadContentItem in currentCshtmlPostContentStoreItems)
+            foreach (var postHeadContentItem in currentCshtmlPostContentStoreItems.OrderBy(i => i.ContentOrder))
             {
                 if (postHeadContentItem.ContentOrder < 0)
                 {

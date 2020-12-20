@@ -16,8 +16,11 @@ namespace Acmion.CshtmlComponent
             PostContent = postContent;
         }
 
-        public int CompareTo(CshtmlComponentInjectionContentItem other)
+        public int CompareTo(CshtmlComponentInjectionContentItem? other)
         {
+            if (other == null)
+                return 0;
+
             return ContentOrder.CompareTo(other.ContentOrder);
         }
     }

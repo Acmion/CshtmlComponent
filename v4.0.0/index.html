@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="en">
 
     <head>
         <title>
-            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V3.1.0
+            CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V4.0.0
         </title>
 
         <meta name="description" content="CshtmlComponent, a component for ASP.NET Core MVC and Razor Pages. No Blazor.">
@@ -28,9 +29,21 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.acmion.com/acmion/hyper-nav/dist/hyper-nav-default.min.css">
+        <link rel="stylesheet" href="https://negatronic-acmion.acmion.com/+/css/negatronic.css">
 
         <!-- Custom -->
         <link rel="stylesheet" href="/Web/css/main.css">
+
+        <!-- Icons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/+/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/+/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/+/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/+/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/+/favicon/safari-pinned-tab.svg" color="#ff0000">
+        <link rel="shortcut icon" href="/+/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-config" content="/+/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
     </head>
 
     <body>
@@ -42,10 +55,13 @@
                     <div class="hn-section hn-section-brand">
                         <div class="hn-item">
                             <a id="hn-logo" class="hn-link" href="/">
+                                <span class="hn-icon hn-size-auto">
+                                    <img src="/+/assets/icon.svg" class="acmion-icon">
+                                </span>
                                 <span class="hn-content">
-                                    <strong style="font-weight: 600;">
+                                    <span class="acmion-logo">
                                         CshtmlComponent
-                                    </strong>
+                                    </span>
                                 </span>
                             </a>
                         </div>
@@ -131,7 +147,7 @@
         <main class="container">
             <section>
                 <h1 class="scroll-anchor" id="home">
-                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V3.1.0
+                    CshtmlComponent - ASP.NET Core MVC and Razor Pages Component V4.0.0
                 </h1>
 
                 <p>
@@ -145,7 +161,7 @@
                     <br>
                     <strong>Install the <a href="https://www.nuget.org/packages/Acmion.CshtmlComponent/">Nuget package</a>.</strong>
                     <br>
-                    <strong>See more detailed <a href="#usage">Usage &amp; Installation instructions</a></strong>.
+                    <strong>See more detailed <a href="#usage">Usage instructions</a></strong>.
                 </p>
 
                 <div class="p-2"></div>
@@ -188,6 +204,12 @@
                                     <li>
                                         Body Content Injection <sup>[3]</sup>
                                     </li>
+                                    <li>
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li>
+                                        Render to String
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -228,6 +250,12 @@
                                     </li>
                                     <li class="feature-not-enabled">
                                         Body Content Injection <sup>[3]</sup>
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Render to String
                                     </li>
                                 </ul>
                             </div>
@@ -270,6 +298,12 @@
                                     <li class="feature-not-enabled">
                                         Body Content Injection <sup>[3]</sup>
                                     </li>
+                                    <li class="feature-not-enabled">
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li class="feature-not-enabled">
+                                        Render to String
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -310,6 +344,12 @@
                                     </li>
                                     <li class="feature-not-enabled">
                                         Body Content Injection <sup>[3]</sup>
+                                    </li>
+                                    <li>
+                                        Render to IHtmlContent
+                                    </li>
+                                    <li>
+                                        Render to String
                                     </li>
                                 </ul>
                             </div>
@@ -417,7 +457,7 @@
                         <h4>
                             Cshtml Code (AdvancedExampleComponent.cshtml)
                         </h4>
-                        <pre><code id="advanced-example-cshtml-code">@* Reference the associated component as model. *@<br>@using SampleRazorPagesApplication.Pages.Components.Example<br>@model AdvancedExampleComponent<br><br>&lt;!-- Content that is injected in to the &lt;head&gt; tag. --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;CshtmlHead&gt;<br>    &lt;!-- This content will be appended to &lt;head&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" /&gt;<br>    &lt;link rel="stylesheet" href="~/css/advanced-example-component.css" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead&gt;<br>    &lt;!-- This content will NOT be appended to &lt;head&gt;, because the default key is already used. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Key="0" ContentOrder="0"&gt;<br>    &lt;!-- This content will be appended to &lt;head&gt; and will appear before &lt;CshtmlHead&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: 0" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: 0");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Key="-1" ContentOrder="-1"&gt;<br>    &lt;!-- This content will be prepended to &lt;head&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: -1, ContentOrder: -1" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: -1, ContentOrder: -1");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Multiple="true" ContentOrder="-2"&gt;<br>    &lt;!-- This content will be prepended to &lt;head&gt; and will appear before &lt;CshtmlHead ContentOrder="-1"&gt;, every time this component is instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Multiple: true, ContentOrder: -2" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Multiple: true, ContentOrder: -2");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br><br><br><br>&lt;!-- Content that is injected in to the &lt;body&gt; tag. --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;CshtmlBody&gt;<br>    &lt;!-- This content will be appended to &lt;body&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody&gt;<br>    &lt;!-- This content will NOT be appended to &lt;body&gt;, because the default key is already used. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Key="0" ContentOrder="0"&gt;<br>    &lt;!-- This content will be appended to &lt;body&gt; and will appear before &lt;CshtmlBody&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: 0" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: 0");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Key="-1" ContentOrder="-1"&gt;<br>    &lt;!-- This content will be prepended to &lt;body&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: -1, ContentOrder: -1" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: -1, ContentOrder: -1");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Multiple="true" ContentOrder="-2"&gt;<br>    &lt;!-- This content will be prepended to &lt;body&gt; and will appear before &lt;CshtmlBody ContentOrder="-1"&gt;, every time this component is instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Multiple: true, ContentOrder: -2" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Multiple: true, ContentOrder: -2");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br><br><br><br>&lt;!-- One off content that is rendered as is and wherever this component is instantiated. --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;CshtmlInitial&gt;<br>    &lt;!-- This content will be rendered, as is, wherever this component is first instantiated. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: default");&lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br>&lt;CshtmlInitial&gt;<br>    &lt;!-- This content will NOT be rendered, because the default key is already used. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: default 2");&lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br>&lt;CshtmlInitial Key="I1"&gt;<br>    &lt;!-- Explicitly keyed. This content will be rendered, as is, wherever this component is first instantiated. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: I1");&lt;/script&gt;<br>    @{ <br>        var a = 0;<br>    }<br>&lt;/CshtmlInitial&gt;<br><br><br><br><br>&lt;!-- The actual content of this component. --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;div class="advanced-example-component" style="background-color: @Model.BackgroundColor; font-size: @Model.FontSize"&gt;<br>    @{<br>        // Assign a variable to a component reference.<br>        // The Box component inherits CshtmlComponentReferenceableBase&lt;Box&gt; (a class that inherits CshtmlComponentBase),<br>        // which implements this logic. Useful if component properties have to be used outside the component's own context.<br><br>        // This is not the default behavior due to the mandatory, but slightly weird syntax:<br>        // public Box : CshtmlComponentReferenceableBase&lt;Box&gt; ....<br><br>        // See the source code of Pages/Components/Box.cshtml.cs for how the component class looks like.<br><br>        var boxReference = new CshtmlComponentReference&lt;Box&gt;();<br><br>        &lt;Box Reference="boxReference"&gt;<br>            &lt;h1&gt;<br>                AdvancedExampleComponent: @Model.UppercaseTitle<br>            &lt;/h1&gt;<br>            &lt;p&gt;<br>                The fontsize of the referenced Box is: @boxReference.Component.FontSize <br>            &lt;/p&gt;<br>        &lt;/Box&gt;<br>    }<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-slot0"&gt;<br>        &lt;!-- Render a named slot. --&gt;<br>        @Html.Raw(Model.NamedSlots["SlotName0"])<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-child-content"&gt;<br>        &lt;!-- Render the child content. --&gt;<br>        @Html.Raw(Model.ChildContent)<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-slot1"&gt;<br>        &lt;!-- Render a typed (or named) slot. --&gt;<br>        @Html.Raw(Model.NamedSlots[AdvancedExampleComponentTypedSlot.SlotName])<br>    &lt;/div&gt;<br>&lt;/div&gt;<br></code></pre>
+                        <pre><code id="advanced-example-cshtml-code">@* Reference the associated component as model. *@<br>@using SampleRazorPagesApplication.Pages.Components.Example<br>@model AdvancedExampleComponent<br><br>&lt;!-- Content that is injected in to the &lt;head&gt; tag. --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;CshtmlHead&gt;<br>    &lt;!-- This content will be appended to &lt;head&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" /&gt;<br>    &lt;link rel="stylesheet" href="~/css/advanced-example-component.css" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead&gt;<br>    &lt;!-- This content will NOT be appended to &lt;head&gt;, because the default key is already used. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Key="0" ContentOrder="0"&gt;<br>    &lt;!-- This content will be appended to &lt;head&gt; and will appear before &lt;CshtmlHead&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: default, ContentOrder: 0" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: default, ContentOrder: 0");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Key="-1" ContentOrder="-1"&gt;<br>    &lt;!-- This content will be prepended to &lt;head&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Key: -1, ContentOrder: -1" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Key: -1, ContentOrder: -1");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br>&lt;CshtmlHead Multiple="true" ContentOrder="-2"&gt;<br>    &lt;!-- This content will be prepended to &lt;head&gt; and will appear before &lt;CshtmlHead ContentOrder="-1"&gt;, every time this component is instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlHead, Multiple: true, ContentOrder: -2" /&gt;<br>    &lt;script&gt;console.log("CshtmlHead, Multiple: true, ContentOrder: -2");&lt;/script&gt;<br>&lt;/CshtmlHead&gt;<br><br><br><br><br>&lt;!-- Content that is injected in to the &lt;body&gt; tag. --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;!-- ---------------------------------------------- --&gt;<br>&lt;CshtmlBody&gt;<br>    &lt;!-- This content will be appended to &lt;body&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody&gt;<br>    &lt;!-- This content will NOT be appended to &lt;body&gt;, because the default key is already used. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: default" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: default");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Key="0" ContentOrder="0"&gt;<br>    &lt;!-- This content will be appended to &lt;body&gt; and will appear before &lt;CshtmlBody&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: default, ContentOrder: 0" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: default, ContentOrder: 0");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Key="-1" ContentOrder="-1"&gt;<br>    &lt;!-- This content will be prepended to &lt;body&gt;, when this component is first instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Key: -1, ContentOrder: -1" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Key: -1, ContentOrder: -1");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br>&lt;CshtmlBody Multiple="true" ContentOrder="-2"&gt;<br>    &lt;!-- This content will be prepended to &lt;body&gt; and will appear before &lt;CshtmlBody ContentOrder="-1"&gt;, every time this component is instantiated. --&gt;<br>    &lt;meta name="description" content="CshtmlBody, Multiple: true, ContentOrder: -2" /&gt;<br>    &lt;script&gt;console.log("CshtmlBody, Multiple: true, ContentOrder: -2");&lt;/script&gt;<br>&lt;/CshtmlBody&gt;<br><br><br><br><br>&lt;!-- One off content that is rendered as is and wherever this component is instantiated. --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;!-- ----------------------------------------------------------------------------------- --&gt;<br>&lt;CshtmlInitial&gt;<br>    &lt;!-- This content will be rendered, as is, wherever this component is first instantiated. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: default");&lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br>&lt;CshtmlInitial&gt;<br>    &lt;!-- This content will NOT be rendered, because the default key is already used. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: default 2");&lt;/script&gt;<br>&lt;/CshtmlInitial&gt;<br><br>&lt;CshtmlInitial Key="I1"&gt;<br>    &lt;!-- Explicitly keyed. This content will be rendered, as is, wherever this component is first instantiated. --&gt;<br>    &lt;script&gt;console.log("CshtmlInitial, Key: I1");&lt;/script&gt;<br>    @{ <br>        var a = 0;<br>    }<br>&lt;/CshtmlInitial&gt;<br><br><br><br><br>&lt;!-- The actual content of this component. --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;!-- ------------------------------------- --&gt;<br>&lt;div class="advanced-example-component" style="background-color: @Model.BackgroundColor; font-size: @Model.FontSize"&gt;<br>    @{<br>        // Assign a variable to a component reference.<br>        // The Box component inherits CshtmlComponentReferenceableBase&lt;Box&gt; (a class that inherits CshtmlComponentBase),<br>        // which implements this logic. Useful if component properties have to be used outside the component's own context.<br><br>        // This is not the default behavior due to the mandatory, but slightly weird syntax:<br>        // public Box : CshtmlComponentReferenceableBase&lt;Box&gt; ....<br><br>        // See the source code of Pages/Components/Box.cshtml.cs for how the component class looks like.<br><br>        var boxReference = new CshtmlComponentReference&lt;Box&gt;();<br><br>        &lt;Box Reference="boxReference"&gt;<br>            &lt;h1&gt;<br>                AdvancedExampleComponent: @Model.UppercaseTitle<br>            &lt;/h1&gt;<br>            &lt;p&gt;<br>                The fontsize of the referenced Box is: @boxReference.Component.FontSize <br>            &lt;/p&gt;<br>        &lt;/Box&gt;<br>    }<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-slot0"&gt;<br>        &lt;!-- Render a named slot. --&gt;<br>        @Html.Raw(Model.NamedSlots["SlotName0"])<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-child-content"&gt;<br>        &lt;!-- Render the child content. --&gt;<br>        @Html.Raw(Model.ChildContent)<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-slot1"&gt;<br>        &lt;!-- Render a typed (or named) slot. --&gt;<br>        @Html.Raw(Model.NamedSlots[AdvancedExampleComponentTypedSlot.SlotName])<br>    &lt;/div&gt;<br><br>    &lt;br /&gt;<br><br>    &lt;div class="advanced-example-component-manual-render"&gt;<br>        &lt;!-- Manually render a component. Note the constructor argument and that some properties have to be manually set. --&gt;<br>        @{<br>            var manualBox = new Box(Html) { ChildContent = "Manually rendered box" };<br>        }<br><br>        @await manualBox.RenderAsync()<br><br>        &lt;br /&gt;<br><br>        &lt;!-- The content can also be rendered into a string. May be useful if templates must be passed to, for example, JavaScript. --&gt;<br>        @{ <br>            var manualBoxRenderedToString = await manualBox.RenderToStringAsync(preserveLineBreaks: false);<br>        }<br><br>        @Html.Raw(manualBoxRenderedToString)<br>    &lt;/div&gt;<br>&lt;/div&gt;<br></code></pre>
 
                         <h4>
                             Component Instantiation
@@ -628,6 +668,74 @@
                             </p>
                         </section>
 
+                    </section>
+
+                    <section class="indent">
+                        <h4>
+                            Methods
+                        </h4>
+
+                        <p>
+                            The methods of <code>CshtmlComponentBase</code> and what they do and return (not including inherited).
+                        </p>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public IHtmlContent Render()
+                            </h5>
+
+                            <p>
+                                Renders and returns the content of the component.
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public Task&lt;IHtmlContent&gt; RenderAsync()
+                            </h5>
+
+                            <p>
+                                Renders and returns the content of the component asynchronously.
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public string RenderToString(bool preserveLineBreaks = true)
+                            </h5>
+
+                            <p>
+                                Renders and returns the content of the component.
+                                If <code>preserveLineBreaks = true</code>, then line breaks are preserved, otherwise they are not.
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                public async Task&lt;string&gt; RenderToStringAsync(bool preserveLineBreaks = true)
+                            </h5>
+
+                            <p>
+                                Renders and returns the content of the component asynchronously.
+                                If <code>preserveLineBreaks = true</code>, then line breaks are preserved, otherwise they are not.
+                            </p>
+                        </section>
+
+                        <section class="indent p-no-margin">
+                            <h5>
+                                protected virtual Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
+                            </h5>
+
+                            <p>
+                                A method that is executed just before a component is rendered.
+                                By default the method does nothing, but by overriding it you may control properties and other
+                                things. Properties may generally not be controlled in the constructor, due to the fact
+                                that they may not be initialized. When this method is called, all properties that have explicitly
+                                been defined will have been set. Note that CshtmlComponent does not differentiate between required
+                                and non-required properties. Ff this is important for you, then you should implement checking logic
+                                here.
+                            </p>
+                        </section>
                     </section>
                 </section>
 
@@ -1103,6 +1211,23 @@
 
                 <section>
                     <h4>
+                        V4.0.0
+                    </h4>
+                    <a href="/v4.0.0/">
+                        V4.0.0 Documentation
+                    </a>
+                    <p>
+                        Published: Dec 19, 2020
+                    </p>
+                    <p>
+                        Updated to .NET 5.0. Additionally, added the methods <code>Render</code>, <code>RenderAsync</code>, <code>RenderToString</code>
+                        and <code>RenderToStringAsync</code> with which a component can manually be rendered. Manual rendering may be useful in, for
+                        example, communicating with JavaScript.
+                    </p>
+                </section>
+
+                <section>
+                    <h4>
                         V3.1.0
                     </h4>
                     <a href="/v3.1.0/">
@@ -1235,10 +1360,7 @@
         </main>
 
         <div style="height: 200px"></div>
-        <div class="p-4 position-fixed fixed-bottom bg-warning">
-            <div class="container">
-                <strong>WARNING: This documentation is outdated. <a href="/"> View current documentation here.</a></strong>
-            </div>
+        <div>
         </div>
 
     </body>
