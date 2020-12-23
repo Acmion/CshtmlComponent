@@ -19,6 +19,9 @@ namespace Acmion.CshtmlComponent
         private static string CshtmlComponentContextComponentStackKey { get; set; } = "CshtmlComponentContextComponentStack";
         private static Dictionary<Type, string> AutomaticallyGeneratedComponentPartialViewNames { get; set; } = new Dictionary<Type, string>();
 
+        [HtmlAttributeNotBound]
+        public IHtmlHelper HtmlHelper { get; }
+
         [ViewContext]
         [HtmlAttributeNotBound]
         public ViewContext ViewContext 
@@ -45,12 +48,11 @@ namespace Acmion.CshtmlComponent
         [HtmlAttributeNotBound]
         public CshtmlComponentBase? ParentComponent { get; set; }
 
-        private IHtmlHelper _htmlHelper;
         private ViewContext _viewContext;
 
         public CshtmlComponentBase(IHtmlHelper htmlHelper)
         {
-            _htmlHelper = htmlHelper;
+            HtmlHelper = htmlHelper;
             PartialViewName = GetAutomaticallyGeneratedPartialViewName();
             OutputTagName = null;
             OutputTagMode = TagMode.StartTagAndEndTag;
@@ -69,7 +71,7 @@ namespace Acmion.CshtmlComponent
         }
         public CshtmlComponentBase(IHtmlHelper htmlHelper, string? partialViewName)
         {
-            _htmlHelper = htmlHelper;
+            HtmlHelper = htmlHelper;
             PartialViewName = partialViewName;
             OutputTagName = null;
             OutputTagMode = TagMode.StartTagAndEndTag;
@@ -88,7 +90,7 @@ namespace Acmion.CshtmlComponent
         }
         public CshtmlComponentBase(IHtmlHelper htmlHelper, string? partialViewName, string? outputTagName = null)
         {
-            _htmlHelper = htmlHelper;
+            HtmlHelper = htmlHelper;
             PartialViewName = partialViewName;
             OutputTagName = outputTagName;
             OutputTagMode = TagMode.StartTagAndEndTag;
@@ -112,7 +114,7 @@ namespace Acmion.CshtmlComponent
             // string outputTagName should be provided by the class that implements CshtmlComponentBase
             // TagMode outputTagMode determines the tag structure
 
-            _htmlHelper = htmlHelper;
+            HtmlHelper = htmlHelper;
             PartialViewName = partialViewName;
             OutputTagName = outputTagName;
             OutputTagMode = outputTagMode;
@@ -132,15 +134,15 @@ namespace Acmion.CshtmlComponent
 
         public IHtmlContent Render()
         {
-            return _htmlHelper.Partial(PartialViewName, this);
+            return HtmlHelper.Partial(PartialViewName, this);
         }
         public Task<IHtmlContent> RenderAsync()
         {
-            return _htmlHelper.PartialAsync(PartialViewName, this);
+            return HtmlHelper.PartialAsync(PartialViewName, this);
         }
         public string RenderToString(bool preserveLineBreaks = true)
         {
-            var html = _htmlHelper.Partial(PartialViewName, this);
+            var html = HtmlHelper.Partial(PartialViewName, this);
 
             using (var writer = new StringWriter())
             {
@@ -158,7 +160,7 @@ namespace Acmion.CshtmlComponent
         }
         public async Task<string> RenderToStringAsync(bool preserveLineBreaks = true)
         {
-            var html = await _htmlHelper.PartialAsync(PartialViewName, this);
+            var html = await HtmlHelper.PartialAsync(PartialViewName, this);
 
             using (var writer = new StringWriter())
             {
@@ -189,7 +191,7 @@ namespace Acmion.CshtmlComponent
 
             _viewContext = vc;
 
-            ((IViewContextAware)_htmlHelper).Contextualize(ViewContext);
+            ((IViewContextAware)HtmlHelper).Contextualize(ViewContext);
         }
         private string GetAutomaticallyGeneratedPartialViewName()
         {
@@ -270,7 +272,7 @@ namespace Acmion.CshtmlComponent
 
             if (PartialViewName != null) 
             {
-                var content = await _htmlHelper.PartialAsync(PartialViewName, this);
+                var content = await HtmlHelper.PartialAsync(PartialViewName, this);
                 output.Content.SetHtmlContent(content);
             }
         }
