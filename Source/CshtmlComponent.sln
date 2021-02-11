@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Acmion.CshtmlComponent", "A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleRazorPagesApplication", "SampleRazorPagesApplication\SampleRazorPagesApplication.csproj", "{734B5614-9C68-4E15-8F5F-F8F2645BEC5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmarking", "Benchmarking\Benchmarking.csproj", "{05C4970C-512F-4061-912B-204817BE3DB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{734B5614-9C68-4E15-8F5F-F8F2645BEC5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{734B5614-9C68-4E15-8F5F-F8F2645BEC5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{734B5614-9C68-4E15-8F5F-F8F2645BEC5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C4970C-512F-4061-912B-204817BE3DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C4970C-512F-4061-912B-204817BE3DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C4970C-512F-4061-912B-204817BE3DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C4970C-512F-4061-912B-204817BE3DB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

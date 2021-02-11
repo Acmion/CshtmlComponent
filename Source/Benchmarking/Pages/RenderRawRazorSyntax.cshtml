@@ -1,0 +1,18 @@
+﻿@page
+
+@foreach (var p in Person.AvailablePersons)
+{
+    <div>
+        <p>
+            <strong>First Name:</strong> @p.FirstName
+        </p>
+        
+        <p>
+            <strong>Last Name:</strong> @p.LastName
+        </p>
+        
+        <p>
+            <strong>Phone Number:</strong> @p.PhoneNumber
+        </p>
+    </div>
+}

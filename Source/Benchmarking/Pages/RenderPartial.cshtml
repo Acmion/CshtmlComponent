@@ -1,0 +1,6 @@
+﻿@page
+
+@foreach (var p in Person.AvailablePersons)
+{
+    <partial name="/Partials/PersonPartial.cshtml" model="p"/>
+}

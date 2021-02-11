@@ -1,0 +1,28 @@
+﻿@page
+
+<h1>
+    Benchmarking
+</h1>
+
+<p>
+    Benchmarking CshtmlComponent, Partials and raw Razor syntax with ApacheBench. 
+    The benchmark commands measures the performance of 500 requests with a concurrency of 50.
+</p>
+
+<p>
+    CshtmlComponent benchmark command: <code>ab -n 500 -c 50 http://localhost:5000/RenderCshtmlComponent </code>
+    <br />
+    CshtmlComponent benchmark page: <a href="/RenderCshtmlComponent">/RenderCshtmlComponent</a>
+</p>
+
+<p>
+    Partials benchmark command: <code>ab -n 500 -c 500 http://localhost:5000/RenderPartial </code>
+    <br />
+    Partials benchmark page: <a href="/RenderPartial">/RenderPartial</a>
+</p>
+
+<p>
+    Razor syntax benchmark command: <code>ab -n 500 -c 50 http://localhost:5000/RenderRawRazorSyntax </code>
+    <br />
+    Razor syntax benchmark page: <a href="/RenderRawRazorSyntax">/RenderRawRazorSyntax</a>
+</p>
