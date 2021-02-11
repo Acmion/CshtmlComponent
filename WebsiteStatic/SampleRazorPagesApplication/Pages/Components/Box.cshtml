@@ -1,0 +1,11 @@
+﻿@model Box
+
+<CshtmlInitial Context="@Model">
+    Hello world
+</CshtmlInitial>
+
+<div class="box" style="padding: 1rem; background-color: @Model.BackgroundColor; font-size: @Model.FontSize">
+    <div class="box-content">
+        @Html.Raw(Model.ChildContent)
+    </div>
+</div>

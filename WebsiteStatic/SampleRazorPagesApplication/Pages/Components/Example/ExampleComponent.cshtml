@@ -1,0 +1,15 @@
+﻿@* Reference the associated component as model. *@
+@using SampleRazorPagesApplication.Pages.Components.Example
+@model ExampleComponent
+
+<!-- The content of the component. -->
+<div class="example-component" style="border: medium solid rgba(0, 0, 0, 0.1); padding: 1rem;">
+    <h1>
+        ExampleComponent: @Model.Title
+    </h1>
+
+    <div class="example-component-child-content">
+        <!-- Render the child content. -->
+        @Html.Raw(Model.ChildContent)
+    </div>
+</div>

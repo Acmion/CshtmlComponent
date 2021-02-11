@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Learn about <a href="https://cshtml-component.acmion.com">CshtmlComponent by Acmion</a>.</p>
+</div>
+
+<div class="container">
+
+    <!-- See the source code of the partial ... -->
+    <partial name="/Pages/Components/Example/ExampleComponentInstantiation.cshtml" />
+
+    <br />
+
+    <partial name="/Pages/Components/Example/AdvancedExampleComponentInstantiation.cshtml" />
+
+
+    <br />
+
+    <partial name="/Pages/Components/Example/AdvancedExampleComponentInstantiation.cshtml" />
+
+    <br />
+
+    <Box>
+        This is some content in a box.
+        <Box>
+            This is some content in a nested box.
+            <Box font-size="2rem" background-color="rgba(0, 0, 255, 0.1)">
+                This is once again content that has been nested in a box, with some custom attributes.
+            </Box>
+        </Box>
+    </Box>
+
+    <br />
+
+    <CaptionedImage ImgSrc="https://i.picsum.photos/id/235/600/400.jpg?hmac=ZYU5T5C6PY8lIoWOAFEJGiU9hi05Urrg5trwbfTpTM8" Caption="The mountain on which Gandalf and the Balrog fought.">
+
+    </CaptionedImage>
+
+    <br />
+
+    <SignupForm Action="/some/action/here">
+
+    </SignupForm>
+
+    <br />
+
+    Bots can not read this email address (use dev tools to inspect element): <ObfuscatedEmail email="dark-lord@mordor.com" />
+
+    <br />
+
+    <Capitalized>
+        This text is capitalized. Note that there is no extra containing tag. (Accomplished by setting "outputTagName" to "null")
+    </Capitalized>
+
+    <br />
+    <br />
+
+
+</div>
