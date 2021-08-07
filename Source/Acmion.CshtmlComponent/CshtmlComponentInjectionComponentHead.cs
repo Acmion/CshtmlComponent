@@ -19,6 +19,10 @@ namespace Acmion.CshtmlComponent
 
         protected override Task ProcessComponent(TagHelperContext context, TagHelperOutput output)
         {
+            if (string.Equals(context.TagName, "head", StringComparison.OrdinalIgnoreCase))
+            {
+            }
+
             if (Multiple)
             {
                 CshtmlComponentInjectionContentStore.AddHeadInjectionContentItem(new CshtmlComponentInjectionContentItem(ContentOrder, ChildContent));

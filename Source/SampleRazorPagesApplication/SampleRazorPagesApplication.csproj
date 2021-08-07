@@ -13,6 +13,15 @@
     <ProjectReference Include="..\Acmion.CshtmlComponent\Acmion.CshtmlComponent.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Pages\Components\TestComponent - Copy - Copy.cshtml.cs">
+      <DependentUpon>TestComponent - Copy.cshtml.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Components\TestComponent - Copy.cshtml.cs">
+      <DependentUpon>TestComponent.cshtml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 
 
 </Project>

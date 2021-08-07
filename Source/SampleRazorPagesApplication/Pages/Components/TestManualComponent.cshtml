@@ -1,0 +1,20 @@
+﻿@model TestManualComponent
+
+<CshtmlHead>
+    <style>
+        .test-manual-component
+        {
+            color: blue;
+        }
+    </style>
+</CshtmlHead>
+
+<div class="test-manual-component">
+    <h4>
+        @Model.Title
+    </h4>
+
+    <div>
+        @Model.ChildContent
+    </div>
+</div>

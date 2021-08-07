@@ -32,6 +32,15 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+
+            <br />
+            <br />
+
+            @{
+                await Html.RenderPartialAsync("/Pages/Partials/ComponentInPartialManualTest.cshtml");
+            }
+
+            <partial name="/Pages/Partials/ComponentInPartialManualTest.cshtml" />
         </main>
     </div>
 
